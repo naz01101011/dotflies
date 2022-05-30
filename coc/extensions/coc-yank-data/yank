@@ -1,0 +1,1841 @@
+aa7f31a7d393991607ff8ecb67a1140a|file:///home/alex/sources/aks-staging-ops/mosquitto-mqtt-module/main.tf|1|1|V|terraform
+	# Config map to configure the nginx ingress to allow TCP comms
+	resource "kubernetes_config_map" "tcp-services" {
+	  metadata {
+	    name      = "tcp-services"
+	    namespace = "default"
+	  }
+	  data = {
+	    9001 : "default/mqtt-mosquitto-broker-eclipse-mosquitto:9001"
+	  }
+	}
+	
+d7f60001653d8e84a7eaea02e92170c3|file:///home/alex/sources/apollo-stack-chart/templates/apollo-ingress.yaml|13|1|V|yaml
+	      - path: /
+	        pathType: Prefix
+	        backend:
+	          service:
+	            name: apollo
+	            port:
+	              number: 80
+1f23039a1ed6595688521b7dfa6418a0|file:///home/alex/sources/eclipse-mosquitto-mqtt-broker-helm-chart/eclipse-mosquitto/templates/ingress.yaml|1|5|v|yaml
+	e if
+d4a973e303ec37692cc8923e3148eef7|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|12|4|v|yaml
+	8080
+1a79a4d60de6718e8e5b326e338ae533|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|12|19|v|yaml
+	example
+9e7ddea6c258788aead2d2da641df586|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|12|19|v|yaml
+	example-
+d5ab8dc7ef67ca92e41d730982c5c602|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|12|26|v|yaml
+	9000
+dabb3ac5ff25705f23f946af1b745684|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|12|1|V|yaml
+	   8883: "default/apollo:8883"
+167fb611160d8297349543099173f6d2|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|12|5|V|yaml
+	    controller:
+66ade0e9e56aa4cc9bc3ed347b1576c7|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|12|5|V|yaml
+	  service:
+f96f40bdb8cb393c6e35be1f7464e339|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|25|4|v|yaml
+	8884
+1b347b97f280eb1e3d8dc96f00822080|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|21|16|V|yaml
+	      mqtt: mqtt
+d25e73ba9259824e736ab091ae1df16d|file:///home/alex/sources/aks-staging-ops/mosquitto-mqtt-module/main.tf|16|1|V|terraform
+	      mqtt = {
+	        name = "mqtt"
+	        port = 1884
+	      }
+0e73e79b8f1780e8a9567e7ce0163a3a|file:///home/alex/sources/eclipse-mosquitto/templates/service.yaml|10|1|V|yaml
+	    - port: {{ .Values.service.ports.mqtt.port }}
+	      targetPort: {{ .Values.container.ports.mqtt.port }}
+	      protocol: TCP
+	      name: {{ .Values.service.ports.mqtt.name }}
+227bc8f3027b55882c92b616a8d112a6|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|16|16|V|yaml
+	      mqttssl: 9883
+28c67a929fd14668291650fae045ba74|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|23|16|V|yaml
+	   9883: "default/mqtt-mosquitto-eclipse-mosquitto:1883"
+43f0a9a36ac47dc5ff35b3e533b8f175|file:///home/alex/sources/aks-staging-ops/.terraform/modules/ingress/nginx.yaml|16|1|V|yaml
+	      mqttssl: 8883
+b5ea1a8b47fef0fbd8ad12cb9ffbf45f|file:///home/alex/sources/aks-staging-ops/mosquitto-mqtt-module/mosquitto.yaml|51|1|V|yaml
+	  listener ${mqtt.port}
+d27362179ac3e19350c47e38f11f616d|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|56|1|V|yaml
+	            - name: 
+	              value: 
+4e08e764a95393862e0d1e5891281e75|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|63|1|^v|yaml
+	ENV 
+	ENV 
+	ENV 
+179276acec00302a6abc393642fadb0d|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|63|1|V|yaml
+	HubConfiguration__Mqtt__Encryption__Port=8883
+602ae3db4cb5fd13cf24433f256a2728|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|64|1|V|yaml
+	HubConfiguration__Mqtt__Encryption__Certificate=<Content of the file staging.logiccloud.io_20220511.pfx.base64>
+50cc8319b0558cf43d7cd07a8a7c59ba|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|58|68|v|yaml
+	<Content of the file staging.logiccloud.io_20220511.pfx.base64>
+cf841b6ad19009298f9b04541772da1a|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|65|1|V|yaml
+	HubConfiguration__Mqtt__Encryption__Password=<content of the file staging.logiccloud.io_20220511.pfx.password>
+89307b451c6dff65606ac6e0be089687|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|60|65|v|yaml
+	<content of the file staging.logiccloud.io_20220511.pfx.password>
+419b3bbf264dd40860e8469ff0346798|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|62|1|V|yaml
+	
+	HubConfiguration__Mqtt__Encryption__Port=8883
+	HubConfiguration__Mqtt__Encryption__Certificate=<Content of the file staging.logiccloud.io_20220511.pfx.base64>
+	HubConfiguration__Mqtt__Encryption__Password=<content of the file staging.logiccloud.io_20220511.pfx.password>
+72cb4032e68f718acc7918b1455b38c2|file:///home/alex/Downloads/staging.logiccloud.io/staging.logiccloud.io_20220511.pfx.base64|1|1|V|
+	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
+1e512d857300dedec5db34372e0db5c1|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|59|22|v|yaml
+	"Content of the file staging.logiccloud.io_20220511.pfx.base64"
+6bfc855f069194df8ea089801c5dae22|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|61|22|v|yaml
+	"content of the file staging.logiccloud.io_20220511.pfx.password"
+3f4690bf292ae457b3d304b0bae9a34b|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|59|24|v|yaml
+	 .Values.pfxbase64 }
+ba3289babc896f801546e85b8ac1192a|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|61|33|v|yaml
+	pfxbase64
+1352b2f39a1966cf81caae2c1982dd57|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|33|22|v|yaml
+	apollo-postgresql
+87d5d648533e61041f20a340d7b5f428|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|35|22|v|yaml
+	"5432"
+f7bdd45c1b12012fcfdfbfd502296daa|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|49|22|v|yaml
+	"1884"
+09b38070e3408cbbb06bd0a0a5ae3c6f|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|57|22|v|yaml
+	"8883"
+b3b85d69ade23c94fa4f0268f3390834|file:///home/alex/sources/apollo-stack-chart/values.yaml|1|1|V|yaml
+	iokey:
+	  port: "8883"
+	mqttbroker:
+	  host: "0.0.0.0"
+	  port: "1884"
+	postgresql:
+	  host: "apollo-postgresql"
+	  port: "5432"
+	ingress:
+	  host: "apollo.staging.logiccloud.io"
+	pfxbase64: "content of the file staging.logiccloud.io_20220511.pfx.base64"
+	pfxpass: "content of the file staging.logiccloud.io_20220511.pfx.password"
+53cd496f84a66bf192b1c819fda4a533|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|12|7|v|terraform
+	postgresqlHos
+38feef3ffdc2342d2656a417982c1359|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/values.yaml|12|25|v|yaml
+	"apollo-postgresql"
+ab3b5daf0f53683f2c95a9bac09b6fd6|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/values.yaml|3|8|V|yaml
+	ingress:
+	  host: ${ingressHost}
+50334612f4ec36c9c17ee3981c36b924|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/values.yaml|1|1|V|yaml
+	mqttbroker:
+	  host: ${mqttHost}
+34b9491aed6c587bd0d9422dd04c818a|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/values.yaml|7|1|V|yaml
+	mqttbroker:
+	  host: "0.0.0.0"
+	  port: "1884"
+e904143a43eff7c7a80822463871c133|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/values.yaml|12|12|v|yaml
+	"content of the file staging.logiccloud.io_20220511.pfx.base64"
+1ee3ac43c791da70b5857922722f06c5|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/staging.logiccloud.io_20220511.pfx.password|1|1|V|
+	BJTKG810UQU6
+b74981d0f5f045de45da9aa53f0c3705|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|1|7|V|terraform
+	data ""
+a1caa17e7e7ca265a58e41dcec842eec|file:///home/alex/sources/aks-tfmodule-keycloak/main.tf|196|1|V|terraform
+	data "azurerm_key_vault_secret" "smtp_password" {
+	  name         = "logiccloud-io-smtp-pass"
+	  key_vault_id = var.keyvault_id
+	}
+accea8a98200c1bca75689edfb73598f|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|2|34|v|terraform
+	smtp_password
+16caa38f3a0e1c1f1062f8a228c7819f|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|3|19|v|terraform
+	logiccloud-io-smtp-pass
+6d6fadc65505338bde9f3449fa11777c|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|2|1|V|terraform
+	data "azurerm_key_vault_secret" "iokey-base64" {
+	  name         = "io-key-staging-20220511-pfx-base64"
+	  key_vault_id = local.keyvault_id
+	}
+95a1446a7120e4af5c0c8878abb7e6d2|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|7|40|v|terraform
+	base64
+0ae88ef8bf8fee486630b1be856279bc|file:///home/alex/sources/aks-tfmodule-keycloak/main.tf|246|16|v|terraform
+	azurerm_key_vault_secret.keycloak-admin-user.value
+f5ddaf0ca7929578b408c909429f68f2|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|4|18|v|terraform
+	local
+2aafab7ab12a848ead661a693cd5afa1|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|72|1|V|terraform
+	  keyvault_id      = local.keyvault_id
+6d9550d3482d2661726df96c67978c95|file:///home/alex/sources/aks-staging-ops/.terraform/modules/keycloak/variables.tf|17|1|V|terraform
+	variable "keyvault_id" {
+	  type        = string
+	  description = "Keyvault ID"
+	}
+6a7df300acabf5921a7939954ce412c9|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|33|48|v|yaml
+	 | quote 
+bb38bfdd700e8e494324831be375e12e|file:///home/alex/sources/apollo-stack-chart/templates/apollo-service.yaml|16|1|V|yaml
+	    - name: "8883"
+	      port: 8883
+	      targetPort: 1883
+6c03c6969be814209fd653b33e54c6fc|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|14|22|v|terraform
+	autosen-
+3b5cc271a91017430cd1a0576b466bcc|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|35|58|v|yaml
+	io-key-simulator:latest
+8cc22dbf30d6789316f3de445d0bcde7|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|35|18|v|yaml
+	registry.gitlab.com/autosen_gmbh/apollo/io-key-simulator:latest
+b6a466b83c3dd7973ab22a4718fbcb0f|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|30|22|v|yaml
+	apollo.io-key.com
+58b9b9268acaef64ac6a80b0543357e6|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|32|23|v|yaml
+	123456789012345
+5383d43db309c8c7a8a538516f4b70a1|file:///home/alex/sources/io-key-sim-chart/values.yaml|5|6|v|yaml
+	Imei
+dd5ab49adfbf0a80fa68122cae4f77ba|file:///home/alex/sources/io-key-sim-chart/values.yaml|1|1|V|yaml
+	image: "registry.gitlab.com/autosen_gmbh/apollo/io-key-simulator:latest"
+	apollo:
+	  host: "apollo.io-key.com"
+	  port: "1883"
+	iokeyId: "123456789012345"
+237eec2f9c336fff800677656442934c|file:///home/alex/sources/aks-staging-ops/apollo-stack-module/main.tf|12|1|V|terraform
+	resource "helm_release" "autosen-apollo-stack" {
+	  chart           = "../apollo-stack-chart"
+	  name            = "apollo-stack"
+	  version         = "0.1.0"
+	  atomic          = true
+	  cleanup_on_fail = true
+	
+	  values = [
+	    templatefile("${path.module}/values.yaml", {
+	      iokeyPort      = "8883"
+	      mqttHost       = "mqtt-mosquitto-eclipse-mosquitto.default.svc"
+	      mqttPort       = "1884"
+	      postgresqlHost = "apollo-postgresql"
+	      postgresqlPort = "5432"
+	      ingressHost    = "apollo.staging.logiccloud.io"
+	      pfxbase64      = data.azurerm_key_vault_secret.iokey-base64.value
+	      pfxpass        = data.azurerm_key_vault_secret.iokey-pass.value
+	    })
+	  ]
+	}
+7b25e2d03e71b72ccd829e9101c57324|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/main.tf|1|34|v|terraform
+	apollo-stack
+248cbfc2ea8e053231b6866304ebda58|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/main.tf|2|25|v|terraform
+	apollo-stack-chart
+31f2385ba9cc65dba7ccb9aa5c5b7600|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/main.tf|3|22|v|terraform
+	apollo
+e5965e85f3e541a8e7b55c7899c67c3f|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/main.tf|10|1|V|terraform
+	      iokeyPort      = "8883"
+	      mqttHost       = "mqtt-mosquitto-eclipse-mosquitto.default.svc"
+	      mqttPort       = "1884"
+	      postgresqlHost = "apollo-postgresql"
+	      postgresqlPort = "5432"
+	      ingressHost    = "apollo.staging.logiccloud.io"
+	      pfxbase64      = data.azurerm_key_vault_secret.iokey-base64.value
+	      pfxpass        = data.azurerm_key_vault_secret.iokey-pass.value
+210d72fee2421ff6413da07c5910044e|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/values.yaml|1|8|v|yaml
+	"registry.gitlab.com/autosen_gmbh/apollo/io-key-simulator:latest"
+a3c2a8f7e80a957568a58c20c241fb4a|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/values.yaml|3|9|v|yaml
+	"apollo.io-key.com"
+4188dcdab3a6d8bdbf0281391c2446e0|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/values.yaml|4|9|v|yaml
+	"1883"
+1685769c10fbcb0ad2f37427a9462be8|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/values.yaml|5|1|V|yaml
+	iokeyId: 123456789012345"
+f51357339e9a8f1fd3e956dc163e69c7|file:///home/alex/sources/aks-staging-ops/io-key-sim-module/values.yaml|5|10|v|yaml
+	123456789012345"
+e1eddf0b1f7f9261f1e1ef29d0d0685d|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|96|1|V|terraform
+	module "apollo-stack" {
+	  source      = "./apollo-stack-module"
+	  keyvault_id = local.keyvault_id
+	}
+8da531faed7deb5a3561facf1c4b660c|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|102|20|v|terraform
+	apollo-stack-module
+71fb8c33e14e031208ee286c8fae9e43|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|103|33|V|terraform
+	  keyvault_id = local.keyvault_id
+29023199940c6b0c9009b54eddc6a40e|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|30|22|v|yaml
+	{{ .Values.apollo.host | quote }}
+cf6852ec80c6f122bb32281daa97d00c|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|32|55|v|yaml
+	"123456789012345"
+097435fbf8163efff6e6bddddbb6524e|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|32|33|v|yaml
+	apollo.host
+6665e4d7e605a6120a63e46e9b87c4bb|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|32|22|v|yaml
+	{{ .Values.iokeyId | quote }}
+5ae1e5e865fd7d83aec9038a3704f1be|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|34|33|v|yaml
+	iokeyId
+d752836933a7db2fd2c6de343b3bb8d2|file:///home/alex/sources/io-key-sim-chart/templates/software-iokey-deployment.yaml|35|18|v|yaml
+	logiccloud.azurecr.io/autosen_gmbh/apollo/io-key-simulator:latest
+b26626e95fb071d1f2781ce3491c2ce8|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|85|1|V|terraform
+	  source     = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-nats?ref=staging"
+6fc11585085baf06cc10ff4725f61777|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|90|78|v|terraform
+	nats
+830f78e090fe8aec00891405dfc14824|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|90|92|v|terraform
+	staging
+c13202afbfa0d0e41fb3ae8761fe483b|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|89|36|V|terraform
+	  source = "./mosquitto-mqtt-module"
+2f53fa45dfeeb8101bbbe956851b66f0|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|89|1|V|terraform
+	  source     = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-mosquitto"
+f9fb8d3549266321fa486450ee6e1a32|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|91|1|V|terraform
+	
+	#module "autosen-apollo" {
+	#source = "./apollo-module"
+	#}
+9bcde6f96032b2d7f17c95bb7d2cb736|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|93|1|V|terraform
+	  source      = "./apollo-stack-module"
+30dc382606e8533c74090efcd64c6be8|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|93|1|V|terraform
+	  source     = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-apollo"
+30fd1cbfdb9b68f309f0074ef5b04e6b|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|98|3|V|terraform
+	  source = "./io-key-sim-module"
+91866e63bee6e299eb90d9761193a5b1|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|64|1|V|yaml
+	      MIIDszCCApugAwIBAgIUJ0vEtAdpkdEYWEPvFjQru79gfFswDQYJKoZIhvcNAQEL
+	      BQAwaTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	      bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEWMBQGA1UEAwwN
+	      bG9naWNjbG91ZC5pbzAeFw0yMjA1MDMwOTUxMjZaFw0yMzA1MDMwOTUxMjZaMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqjCKmWBTk
+	      WSmSLjBGKME/8GOag0n/92ZNXG41HHlOHHy5wnBT43VD/RVMVDg6jYCuykoROhT1
+	      HYWKAT1dHSGF8YCGgDYVmzgBETWbUSVBLW+f94euOmMCLkAlWjeEP9PJ2LPsHEtb
+	      5ctmlbACpn3q5XYkcJAxkolFChZFw2t2cOrRaoO0+oswBdMLTAfXltgjaRxjvKJ6
+	      Ci/zQk0OgTeJYq2xYYJ5ohoDdXmtwRqRUm7RuMqMR6zdCmAAqyAchZapIUTZA59J
+	      oUsltSybFBnUbWVHcNSdmK4QdqAdYMBdMG7w9ve1mrCnzwMpGAYqiGOWvHRdcTFs
+	      1HKkYW7k9OBBAgMBAAGjUzBRMB0GA1UdDgQWBBTJW498dJLrA9nZA5WLgLziK8S9
+	      EzAfBgNVHSMEGDAWgBTJW498dJLrA9nZA5WLgLziK8S9EzAPBgNVHRMBAf8EBTAD
+	      AQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBUYzzby8XFUOMBAjoaYYBAqq81BmCdrk42
+	      /Je6OzfwPC7d67TAT9Db4QhJqJrygZKx/olbwRj0Dn65sDWNdaCpjjUUg0Vv5bWK
+	      BvqnzC30xn41bAdUVAAjKCDNlS233qgTg3DrNL133uTHuADvAKBNh6b4pNxxwjwp
+	      f8SZKfQdqaJ1Eo0TmCTrzYRLvdDZq7fYjLf44pKkJX73K3Vmy8dS7/KsQuek3aDU
+	      3727E+Mts/7w1g1xF6cKSNmf3FXnho0ShQa41t0IBFMeeIvcsHy+kQM3/2/FwDjC
+	      5nVdjmJ1AHu6pgmrepNYtRi7Q/oWI78xUytiocx8NQnX0uH3znmB
+	      
+ef8ad93e8bd47a7cc7b73dd33b32f9ce|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|89|1|V|yaml
+	      MIIDXTCCAkUCFFY9Dg/A2u+sfsWmEa7W4A+3tz3qMA0GCSqGSIb3DQEBCwUAMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wHhcNMjIwNTAzMDk1MTI2WhcNMjMwNTAzMDk1MTI2WjBtMQswCQYD
+	      VQQGEwJERTEPMA0GA1UECAwGQmVybGluMQ8wDQYDVQQHDAZCZXJsaW4xEzARBgNV
+	      BAoMCmxvZ2ljY2xvdWQxDzANBgNVBAsMBlNlcnZlcjEWMBQGA1UEAwwNbG9naWNj
+	      bG91ZC5pbzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKryWEbaiGT4
+	      JZT26xIC3ehzVWVfR08qIeAa47DOFz8cqkL2lL9XZhhunPkLPvLQqnwdacdJXLC9
+	      gUbMs6eLlR0E6oULJb2jvfnQU1elDk+fdTkLJcuk2eVwwS+xSAqbWQsqfx0/pXY7
+	      3Ht67ge5yFFAtdw63cK8WzQqKhJ/KWg5xTGqExwbeWImTaa7/h/TQ3LhseZIWtpj
+	      VMVB+p/HJK7pOjQAYkIzSY8wYl/FYBdws53lexDjyiRTqhPzjEdc7tX2BdLD3xzk
+	      uz9ZUxO+LzZqVQp/AItY4fEakADfv2xMjALNcT6MdnH5m7IWNBnNL7KJ5AfZwRaB
+	      VG6iK+Y+iG0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAUqziMJpZt6j9X8xdtQCS
+	      z8TPaw0yaieO/yH1x9zbkh5VQ8mX2zo+ZHim8ilqx+19Abwv16uM5qcByTxvPYmT
+	      qkrzvCq87O0Tf6v79TG8JWHXfrz0nNLp2gn6Xe7FNdEl3HVKqOLmNPYcJMI6ZASb
+	      2OybmkdGlLXy5BBICKMnUN/ySCbb3tRbmJjyk9g2KzzoFlkj+myLQzhOipb0ZYXa
+	      jCPL5Cg6h/jyFb5gVIbbEbg0T6dI6wygkps3pvXIvx+e+45BRbaypqnp4u2RmiDO
+	      xe59lcwls7TW7JF4Jv4Akv/B3zd+wEYB3PLyoOHHBXR8TkXwJ/84h+JiABnn3UtB
+	      cQ==
+335d949bd9b0b0007082bcd55b8b2a9d|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|111|1|V|yaml
+	      MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCq8lhG2ohk+CWU
+	      9usSAt3oc1VlX0dPKiHgGuOwzhc/HKpC9pS/V2YYbpz5Cz7y0Kp8HWnHSVywvYFG
+	      zLOni5UdBOqFCyW9o7350FNXpQ5Pn3U5CyXLpNnlcMEvsUgKm1kLKn8dP6V2O9x7
+	      eu4HuchRQLXcOt3CvFs0KioSfyloOcUxqhMcG3liJk2mu/4f00Ny4bHmSFraY1TF
+	      QfqfxySu6To0AGJCM0mPMGJfxWAXcLOd5XsQ48okU6oT84xHXO7V9gXSw98c5Ls/
+	      WVMTvi82alUKfwCLWOHxGpAA379sTIwCzXE+jHZx+ZuyFjQZzS+yieQH2cEWgVRu
+	      oivmPohtAgMBAAECggEBAIKCNqcRXCRJ1tddk6XSjnxS4RVdomFr9yTTIpXvIYxL
+	      ZClve6yBGy7389umnE5gxGexRPqipaNBapsU2OvHAvZ+tFUSZ6PaiMVaKOa22rAr
+	      OyFrw1Uv7DLg3Hx+ylNeuqJttVItLzOPDAsxlNxNGAQAdVdHkdqEVtUCg9BPSNuK
+	      T/XK8OOgzkSDLOgnP3kC4+KoQKuqNFFB/ksdEULm1161pVl9lD6Tn5CPK5qmUE3s
+	      a0cuUR4ycN8BsYeiSyzhxaYklSJIw0oSXd+CRVmnxS9AcPaetyy5xNwloDNGkoqT
+	      aH391hNiXLI2tuZoFb3fbVkTI3iqdgdH88gMizgqpIECgYEA0sqJX8oa8rKryrty
+	      oYTvcH/dVK8hukLohmfcDQhZ+9i94wfhcJlnkGEBGVREjkT4a+wTMdmWvSezplMa
+	      74o0EpmKPuksj4NMEhBUtPpnBEFAPmNO9kDS/LfQ4D17LwfVr0j9rar0R4XJVJO7
+	      Fayzen2nYRdOpbKGk8M1JnkePj0CgYEAz5wml1m6xJvtEsIWadCHmWlE9WGVNKVn
+	      wSX4ExCoHvQq2Vnt8HYXfPKih20tkaZHpYDBja7Dhf7P4dBRxG/lMluUVZEd4Ktn
+	      UUMS9bwxkTtQVqfDKWRlxqh6QtPyKNlBF6P4+3kw4/usl+R5Ch0iKhC6nsuCpqSh
+	      x/c9pV11xfECgYAvFZyv7+YrFiv3gf1uBNKzL2ySEPiYsX9dHm/x3U60ScrInqcF
+	      zs5qWrCzJraVjORsvvPeq7rXD7o6Sc/3d8h/6xoNSWpxuCNS2aECN/iw455lESu/
+	      J+W5G5olrLYKYFaj68r2cvxTyZeaM9GTWttQXib4MguYSZN0CCOkL2PJBQKBgDfa
+	      G2u2QQ+pnyLfwiXfastzzZByGzDZmssUiuOeJIyHRYvJrMB3FKSRpfXnAk5fvICi
+	      3e9e580Bmy113LmLHM7qYkKO0snhct8iu1QOuAsJOPjHEzLshpDmPFYELO6eW+uf
+	      Oll05hk/WNRYK9PzuIA2le4oc9KfEcL5GcWGGiwRAoGBALIRI5FcAb3vaqN63oHH
+	      OGLfWReDL4iwUA5aYSKFmKLjObFCdUa6/Pnz4Ssmn1j9phXUoMThRnRCSJGjaaM+
+	      2KtH6M2jHHGgKmWOZ7d10mk11MJjFRdmP0Z4tFMoxEtobd9VPIgrDCzzy0GxaBlO
+	      ROVIQ4NlgbSZHVzeuCyHQYCo
+3180c78e27f95147140e1d7b2e66cfce|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|149|1|V|yaml
+	  ##
+251f451262a07d14269354c742a74f20|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|64|1|V|yaml
+	      MIIDwzCCAqugAwIBAgIUHLEKy8hz0M+jgHMnJj2AkBfNadUwDQYJKoZIhvcNAQEL
+	      BQAwcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	      bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UEAwwV
+	      c3RhZ2luZy5sb2dpY2Nsb3VkLmlvMB4XDTIyMDUxNjE1MTYxNVoXDTIzMDUxNjE1
+	      MTYxNVowcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwG
+	      QmVybGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UE
+	      AwwVc3RhZ2luZy5sb2dpY2Nsb3VkLmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+	      MIIBCgKCAQEAyQ8tEuwrQMWv1BPwmsveiSxUcdpZ+BXgDkEaiSfyA7NbHcW9leLT
+	      AVj9RsDPrLvonIkEVb5Q+CygBG6PAlLnM0YJbk4t1DpMoLBuSs3ZiFPRTO5b/RgH
+	      K8IANzPVB5iUqGCIm+ZVXM7wEPlR91nj9+w5JF84xY5FluLAkpOwpCJbf/fSVV7u
+	      AEY/DWuPZtSHYDYlMvVpbAxLV1jDSQMT7HSYlGVy+iKvUK8FfHINKKezMKhshSCj
+	      jGpK+yLlsYmqhjP6VUHWU5eZi6e7aATQsn85f7CPD1Xjek/gobrshwcsRxxyX9UQ
+	      lxjiRgOjlnRCZruUuTzoU+0X0XalLwN7rQIDAQABo1MwUTAdBgNVHQ4EFgQUuGNd
+	      oFoVl/tqVRCcmxnMXKTc+LowHwYDVR0jBBgwFoAUuGNdoFoVl/tqVRCcmxnMXKTc
+	      +LowDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAIPRtAe1nC+ZL
+	      ywovj+qHmQpU9573L7jvN0b4Hgv5g39m1fzYC1J/z55mG+tJW2f+rNV5vr/d2EFf
+	      dAN/pyPqjIKcUunQaLPVeh027IVVeZ7czzQppkR2+HkcgwscMtC5fWWVCiI77NjL
+	      m6KMiYH5LY6Bmn8pDrSiBz77bf/lsmQl+LoA4VHnjCcw64TZW9eaY5sUWZMKT6f1
+	      qWjq7QbnimunzQHs+On2N4rglIa92nR8GHRDElR67PwxHr8nLLsusrH7TFWtDoOG
+	      +O8B6rnVSSvRN08pxwbDKhokk7qocTCOF7XgCmvQsKHscs4LuH7GRrXsKk7m+wKK
+	      I/Bk5aTxhA==
+18f701ea68ae62fc6886a81966bac77a|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|68|1|V|yaml
+	      MIIDbTCCAlUCFAmppnzCWZg0eeL7nLwpL+4+cptnMA0GCSqGSIb3DQEBCwUAMHEx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExHjAcBgNVBAMMFXN0YWdp
+	      bmcubG9naWNjbG91ZC5pbzAeFw0yMjA1MTYxNTE2MTVaFw0yMzA1MTYxNTE2MTVa
+	      MHUxCzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxp
+	      bjETMBEGA1UECgwKbG9naWNjbG91ZDEPMA0GA1UECwwGU2VydmVyMR4wHAYDVQQD
+	      DBVzdGFnaW5nLmxvZ2ljY2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+	      ggEKAoIBAQCkhQBR1YnEyTTGUL85a/+mxeMCf52gv+LifMvubf71/UNfrNWdeiEi
+	      7m5XxH/hqRK7fx7XXpSGWWifJ/tdvoBjMFW6xnolegQ5fy5JvDTGcWHvFPrsdmco
+	      UZOK9Tx2bVOtMyyroiiPmi/dj8S3w0D3fsTrOKHzGhaeVlva7MXIKcUuY7/RBBAz
+	      yvBudDjQxNo1VHoLmf3w2nATfuRMET7eEQ0oxz8Ub5cgd0JYdTHQaAw8r+1oNlIy
+	      wjFQoAhHkNSMrCQ77i8VpCuT3awop4ykRbymXfKLoET7fjqeUnx9CPliqp9ms0ko
+	      CNq0AtYHfjEvzkvXfEeZKvB6hnLLLFFxAgMBAAEwDQYJKoZIhvcNAQELBQADggEB
+	      AH2MLjQq+imrQCV49h1AI+g4lIuxZjvcysLIU+6VEWHG0A2IFYeQgiafQuFPIlxV
+	      c95xTB43qL1liCgWrcGNmIR9sP7SXC2bq4rOzIyUZXjWrymz4K4nE1/erjxFNmQR
+	      Xe5gcyc5yZNmVkbn90tZj8HAy3WtcrMZ9TQknXwKDjTeuwe99gfYxHtizH/xc8oW
+	      MjdNUx3E+f6XoMT/58QMmIDEJJomZecFnOsA5zG42LnJ7P/JHqZakoCcpHIeBNXz
+	      XziPIzAlaiBD8x1nTuJe3vCJZvxLSot/8/mGfe11V8X82DSsFsxdZFcaTU5nOQMw
+	      blMU1p/MdvXrBQo8Sv7rIuo=
+0100665b1017f992548b025eb2e23935|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|71|1|V|yaml
+	      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCkhQBR1YnEyTTG
+	      UL85a/+mxeMCf52gv+LifMvubf71/UNfrNWdeiEi7m5XxH/hqRK7fx7XXpSGWWif
+	      J/tdvoBjMFW6xnolegQ5fy5JvDTGcWHvFPrsdmcoUZOK9Tx2bVOtMyyroiiPmi/d
+	      j8S3w0D3fsTrOKHzGhaeVlva7MXIKcUuY7/RBBAzyvBudDjQxNo1VHoLmf3w2nAT
+	      fuRMET7eEQ0oxz8Ub5cgd0JYdTHQaAw8r+1oNlIywjFQoAhHkNSMrCQ77i8VpCuT
+	      3awop4ykRbymXfKLoET7fjqeUnx9CPliqp9ms0koCNq0AtYHfjEvzkvXfEeZKvB6
+	      hnLLLFFxAgMBAAECggEAI43GoujF7CwbZpw+pxcq2Yy8YWbY1suBKbcUj0NgLSL9
+	      c2izhWPGU3k5iWgixs62CKURMjPzXxFlZbfLP9gSgN0KOeH4ta6nyREuHKs6sIQC
+	      SRu8mmuAIZt3ijkzRtibk7uSdMkHgPkuTPBr79aXbKUNw1Oq1BGYP8Gj+izfFUFw
+	      0pTSPNvQUl8EyG0tXLx2zcUG4acOEDMn2KxZs7BfhaWWZlahSbqSWKLgUVPciE4V
+	      ocVPAxZ2NLXptSJaHLTV0y4uvwJW+OreBOEtJvYtWGDCpurFopsw7q+aQknTdlcB
+	      9LeRLZzx53CAkUKskFr8Rh4HxRoaQikhY/tH8bmDnQKBgQDYb4WPbHcnlaVWgbrv
+	      XI1wLZpubBs52I/sDFJ8qRDCU4u8XrrxovmfgA18RNMMHoZytjO2iJ40Dr9XoWHF
+	      Yxx+z6WM1D+yDnxcfQQs4swJ89n1EsP/TaNkC7U8wTzolGfGefD5ZeMK9kxYwF21
+	      hH7RnaaU0k4LW+NLuefpjAaIKwKBgQDCl/n0tsq9qubgl0hf4w6gahhsNHkBT6tz
+	      2o9lcuubEeJroeJf6N5ZwOPx/vO5ND87EQ0gsBoXd8BvKoiVFF93aY3U90UcI87F
+	      da/ehuwm+7h9kG43Uyg2ojuJHhA2w4x/UXY/Z5rynVlh+xsSP/JLJN3X5ZG7ru4b
+	      V5ugmY1C0wKBgQCqg7IFvL5jQVJxROOxkIkdx8/TDvikKim5HjweWlQJxShhz4AY
+	      vv1K2+fD77UV5zalSUaUmC2LddLphwswJ1Vb0tvqh41nCmKPuy5+7m8xqBwfKBmi
+	      GdiQCWlP5C3ITqMziv5+ffbRvBmKEoPBbhE7s6h5tvYlnM8F6gD7zoWW4QKBgFwH
+	      6mRNKxeGw0iG4+jNhvZhFwndyzjOiCTzwgvVzQ366F3FIz3+8WH7cxLZZEU8K4dw
+	      6geCoeRlc3Jf6FaxWvErz7Nf+qRzXvBOV43ju744IKnp6+ZogsVL9uJDgKGV3FW+
+	      njEge8ywlDxduRDpg1r8pZrc7Q6Zje0KgwTyejeXAoGAVC5BkmNdnbNIRO9jcb9S
+	      kt9tQsfLDNz9MWiIvmfS7vttaCm31KIWCqEhtiebNfKNaaAKFMfYwhb1zSALVmel
+	      GsPVt87Edjg1RwsPTuCqc3AHpCLFI96U1N1ZiLEuWITWrXMtSlRv5WwIrlrPncne
+	      vQ0z+9Gj/sicSr7BSRrzKb4=
+663cb4525b2c869994c6848bde97c62a|file:///home/alex/sources/eclipse-mosquitto-mqtt-broker-helm-chart/certs/staging-mosquitto-sscerts/ca.crt|2|1|V|
+	MIIDwzCCAqugAwIBAgIUHLEKy8hz0M+jgHMnJj2AkBfNadUwDQYJKoZIhvcNAQEL
+	BQAwcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UEAwwV
+	c3RhZ2luZy5sb2dpY2Nsb3VkLmlvMB4XDTIyMDUxNjE1MTYxNVoXDTIzMDUxNjE1
+	MTYxNVowcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwG
+	QmVybGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UE
+	AwwVc3RhZ2luZy5sb2dpY2Nsb3VkLmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+	MIIBCgKCAQEAyQ8tEuwrQMWv1BPwmsveiSxUcdpZ+BXgDkEaiSfyA7NbHcW9leLT
+	AVj9RsDPrLvonIkEVb5Q+CygBG6PAlLnM0YJbk4t1DpMoLBuSs3ZiFPRTO5b/RgH
+	K8IANzPVB5iUqGCIm+ZVXM7wEPlR91nj9+w5JF84xY5FluLAkpOwpCJbf/fSVV7u
+	AEY/DWuPZtSHYDYlMvVpbAxLV1jDSQMT7HSYlGVy+iKvUK8FfHINKKezMKhshSCj
+	jGpK+yLlsYmqhjP6VUHWU5eZi6e7aATQsn85f7CPD1Xjek/gobrshwcsRxxyX9UQ
+	lxjiRgOjlnRCZruUuTzoU+0X0XalLwN7rQIDAQABo1MwUTAdBgNVHQ4EFgQUuGNd
+	oFoVl/tqVRCcmxnMXKTc+LowHwYDVR0jBBgwFoAUuGNdoFoVl/tqVRCcmxnMXKTc
+	+LowDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAIPRtAe1nC+ZL
+	ywovj+qHmQpU9573L7jvN0b4Hgv5g39m1fzYC1J/z55mG+tJW2f+rNV5vr/d2EFf
+	dAN/pyPqjIKcUunQaLPVeh027IVVeZ7czzQppkR2+HkcgwscMtC5fWWVCiI77NjL
+	m6KMiYH5LY6Bmn8pDrSiBz77bf/lsmQl+LoA4VHnjCcw64TZW9eaY5sUWZMKT6f1
+	qWjq7QbnimunzQHs+On2N4rglIa92nR8GHRDElR67PwxHr8nLLsusrH7TFWtDoOG
+	+O8B6rnVSSvRN08pxwbDKhokk7qocTCOF7XgCmvQsKHscs4LuH7GRrXsKk7m+wKK
+	I/Bk5aTxhA==
+dce8d9add4b8e22a4dbaada00709e805|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|63|1|V|yaml
+	      -----BEGIN CERTIFICATE-----
+	      MIIDwzCCAqugAwIBAgIUHLEKy8hz0M+jgHMnJj2AkBfNadUwDQYJKoZIhvcNAQEL
+	      BQAwcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	      bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UEAwwV
+	      c3RhZ2luZy5sb2dpY2Nsb3VkLmlvMB4XDTIyMDUxNjE1MTYxNVoXDTIzMDUxNjE1
+	      MTYxNVowcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwG
+	      QmVybGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UE
+	      AwwVc3RhZ2luZy5sb2dpY2Nsb3VkLmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+	      MIIBCgKCAQEAyQ8tEuwrQMWv1BPwmsveiSxUcdpZ+BXgDkEaiSfyA7NbHcW9leLT
+	      AVj9RsDPrLvonIkEVb5Q+CygBG6PAlLnM0YJbk4t1DpMoLBuSs3ZiFPRTO5b/RgH
+	      K8IANzPVB5iUqGCIm+ZVXM7wEPlR91nj9+w5JF84xY5FluLAkpOwpCJbf/fSVV7u
+	      AEY/DWuPZtSHYDYlMvVpbAxLV1jDSQMT7HSYlGVy+iKvUK8FfHINKKezMKhshSCj
+	      jGpK+yLlsYmqhjP6VUHWU5eZi6e7aATQsn85f7CPD1Xjek/gobrshwcsRxxyX9UQ
+	      lxjiRgOjlnRCZruUuTzoU+0X0XalLwN7rQIDAQABo1MwUTAdBgNVHQ4EFgQUuGNd
+	      oFoVl/tqVRCcmxnMXKTc+LowHwYDVR0jBBgwFoAUuGNdoFoVl/tqVRCcmxnMXKTc
+	      +LowDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAIPRtAe1nC+ZL
+	      ywovj+qHmQpU9573L7jvN0b4Hgv5g39m1fzYC1J/z55mG+tJW2f+rNV5vr/d2EFf
+	      dAN/pyPqjIKcUunQaLPVeh027IVVeZ7czzQppkR2+HkcgwscMtC5fWWVCiI77NjL
+	      m6KMiYH5LY6Bmn8pDrSiBz77bf/lsmQl+LoA4VHnjCcw64TZW9eaY5sUWZMKT6f1
+	      qWjq7QbnimunzQHs+On2N4rglIa92nR8GHRDElR67PwxHr8nLLsusrH7TFWtDoOG
+	      +O8B6rnVSSvRN08pxwbDKhokk7qocTCOF7XgCmvQsKHscs4LuH7GRrXsKk7m+wKK
+	      I/Bk5aTxhA==
+	      -----END CERTIFICATE-----
+cc9f4871b85afbc55a4d019fc533f65d|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|65|1|V|yaml
+	      -----BEGIN CERTIFICATE-----
+	      MIIDbTCCAlUCFAmppnzCWZg0eeL7nLwpL+4+cptnMA0GCSqGSIb3DQEBCwUAMHEx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExHjAcBgNVBAMMFXN0YWdp
+	      bmcubG9naWNjbG91ZC5pbzAeFw0yMjA1MTYxNTE2MTVaFw0yMzA1MTYxNTE2MTVa
+	      MHUxCzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxp
+	      bjETMBEGA1UECgwKbG9naWNjbG91ZDEPMA0GA1UECwwGU2VydmVyMR4wHAYDVQQD
+	      DBVzdGFnaW5nLmxvZ2ljY2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+	      ggEKAoIBAQCkhQBR1YnEyTTGUL85a/+mxeMCf52gv+LifMvubf71/UNfrNWdeiEi
+	      7m5XxH/hqRK7fx7XXpSGWWifJ/tdvoBjMFW6xnolegQ5fy5JvDTGcWHvFPrsdmco
+	      UZOK9Tx2bVOtMyyroiiPmi/dj8S3w0D3fsTrOKHzGhaeVlva7MXIKcUuY7/RBBAz
+	      yvBudDjQxNo1VHoLmf3w2nATfuRMET7eEQ0oxz8Ub5cgd0JYdTHQaAw8r+1oNlIy
+	      wjFQoAhHkNSMrCQ77i8VpCuT3awop4ykRbymXfKLoET7fjqeUnx9CPliqp9ms0ko
+	      CNq0AtYHfjEvzkvXfEeZKvB6hnLLLFFxAgMBAAEwDQYJKoZIhvcNAQELBQADggEB
+	      AH2MLjQq+imrQCV49h1AI+g4lIuxZjvcysLIU+6VEWHG0A2IFYeQgiafQuFPIlxV
+	      c95xTB43qL1liCgWrcGNmIR9sP7SXC2bq4rOzIyUZXjWrymz4K4nE1/erjxFNmQR
+	      Xe5gcyc5yZNmVkbn90tZj8HAy3WtcrMZ9TQknXwKDjTeuwe99gfYxHtizH/xc8oW
+	      MjdNUx3E+f6XoMT/58QMmIDEJJomZecFnOsA5zG42LnJ7P/JHqZakoCcpHIeBNXz
+	      XziPIzAlaiBD8x1nTuJe3vCJZvxLSot/8/mGfe11V8X82DSsFsxdZFcaTU5nOQMw
+	      blMU1p/MdvXrBQo8Sv7rIuo=
+	      -----END CERTIFICATE-----
+6e38c2bf22620915f7c8324a19ce4d29|file:///home/alex/sources/tfmodule-mosquitto/mosquitto.yaml|66|1|V|yaml
+	      -----BEGIN PRIVATE KEY-----
+	      MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCkhQBR1YnEyTTG
+	      UL85a/+mxeMCf52gv+LifMvubf71/UNfrNWdeiEi7m5XxH/hqRK7fx7XXpSGWWif
+	      J/tdvoBjMFW6xnolegQ5fy5JvDTGcWHvFPrsdmcoUZOK9Tx2bVOtMyyroiiPmi/d
+	      j8S3w0D3fsTrOKHzGhaeVlva7MXIKcUuY7/RBBAzyvBudDjQxNo1VHoLmf3w2nAT
+	      fuRMET7eEQ0oxz8Ub5cgd0JYdTHQaAw8r+1oNlIywjFQoAhHkNSMrCQ77i8VpCuT
+	      3awop4ykRbymXfKLoET7fjqeUnx9CPliqp9ms0koCNq0AtYHfjEvzkvXfEeZKvB6
+	      hnLLLFFxAgMBAAECggEAI43GoujF7CwbZpw+pxcq2Yy8YWbY1suBKbcUj0NgLSL9
+	      c2izhWPGU3k5iWgixs62CKURMjPzXxFlZbfLP9gSgN0KOeH4ta6nyREuHKs6sIQC
+	      SRu8mmuAIZt3ijkzRtibk7uSdMkHgPkuTPBr79aXbKUNw1Oq1BGYP8Gj+izfFUFw
+	      0pTSPNvQUl8EyG0tXLx2zcUG4acOEDMn2KxZs7BfhaWWZlahSbqSWKLgUVPciE4V
+	      ocVPAxZ2NLXptSJaHLTV0y4uvwJW+OreBOEtJvYtWGDCpurFopsw7q+aQknTdlcB
+	      9LeRLZzx53CAkUKskFr8Rh4HxRoaQikhY/tH8bmDnQKBgQDYb4WPbHcnlaVWgbrv
+	      XI1wLZpubBs52I/sDFJ8qRDCU4u8XrrxovmfgA18RNMMHoZytjO2iJ40Dr9XoWHF
+	      Yxx+z6WM1D+yDnxcfQQs4swJ89n1EsP/TaNkC7U8wTzolGfGefD5ZeMK9kxYwF21
+	      hH7RnaaU0k4LW+NLuefpjAaIKwKBgQDCl/n0tsq9qubgl0hf4w6gahhsNHkBT6tz
+	      2o9lcuubEeJroeJf6N5ZwOPx/vO5ND87EQ0gsBoXd8BvKoiVFF93aY3U90UcI87F
+	      da/ehuwm+7h9kG43Uyg2ojuJHhA2w4x/UXY/Z5rynVlh+xsSP/JLJN3X5ZG7ru4b
+	      V5ugmY1C0wKBgQCqg7IFvL5jQVJxROOxkIkdx8/TDvikKim5HjweWlQJxShhz4AY
+	      vv1K2+fD77UV5zalSUaUmC2LddLphwswJ1Vb0tvqh41nCmKPuy5+7m8xqBwfKBmi
+	      GdiQCWlP5C3ITqMziv5+ffbRvBmKEoPBbhE7s6h5tvYlnM8F6gD7zoWW4QKBgFwH
+	      6mRNKxeGw0iG4+jNhvZhFwndyzjOiCTzwgvVzQ366F3FIz3+8WH7cxLZZEU8K4dw
+	      6geCoeRlc3Jf6FaxWvErz7Nf+qRzXvBOV43ju744IKnp6+ZogsVL9uJDgKGV3FW+
+	      njEge8ywlDxduRDpg1r8pZrc7Q6Zje0KgwTyejeXAoGAVC5BkmNdnbNIRO9jcb9S
+	      kt9tQsfLDNz9MWiIvmfS7vttaCm31KIWCqEhtiebNfKNaaAKFMfYwhb1zSALVmel
+	      GsPVt87Edjg1RwsPTuCqc3AHpCLFI96U1N1ZiLEuWITWrXMtSlRv5WwIrlrPncne
+	      vQ0z+9Gj/sicSr7BSRrzKb4=
+	      -----END PRIVATE KEY-----
+aa6ecb5d46cdfcbdb0ae0ed20d92f978|file:///home/alex/sources/eclipse-mosquitto-mqtt-broker-helm-chart/certs/staging-mosquitto-sscerts/ca.crt|1|1|V|
+	-----BEGIN CERTIFICATE-----
+	MIIDwzCCAqugAwIBAgIUHLEKy8hz0M+jgHMnJj2AkBfNadUwDQYJKoZIhvcNAQEL
+	BQAwcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UEAwwV
+	c3RhZ2luZy5sb2dpY2Nsb3VkLmlvMB4XDTIyMDUxNjE1MTYxNVoXDTIzMDUxNjE1
+	MTYxNVowcTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwG
+	QmVybGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEeMBwGA1UE
+	AwwVc3RhZ2luZy5sb2dpY2Nsb3VkLmlvMIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8A
+	MIIBCgKCAQEAyQ8tEuwrQMWv1BPwmsveiSxUcdpZ+BXgDkEaiSfyA7NbHcW9leLT
+	AVj9RsDPrLvonIkEVb5Q+CygBG6PAlLnM0YJbk4t1DpMoLBuSs3ZiFPRTO5b/RgH
+	K8IANzPVB5iUqGCIm+ZVXM7wEPlR91nj9+w5JF84xY5FluLAkpOwpCJbf/fSVV7u
+	AEY/DWuPZtSHYDYlMvVpbAxLV1jDSQMT7HSYlGVy+iKvUK8FfHINKKezMKhshSCj
+	jGpK+yLlsYmqhjP6VUHWU5eZi6e7aATQsn85f7CPD1Xjek/gobrshwcsRxxyX9UQ
+	lxjiRgOjlnRCZruUuTzoU+0X0XalLwN7rQIDAQABo1MwUTAdBgNVHQ4EFgQUuGNd
+	oFoVl/tqVRCcmxnMXKTc+LowHwYDVR0jBBgwFoAUuGNdoFoVl/tqVRCcmxnMXKTc
+	+LowDwYDVR0TAQH/BAUwAwEB/zANBgkqhkiG9w0BAQsFAAOCAQEAIPRtAe1nC+ZL
+	ywovj+qHmQpU9573L7jvN0b4Hgv5g39m1fzYC1J/z55mG+tJW2f+rNV5vr/d2EFf
+	dAN/pyPqjIKcUunQaLPVeh027IVVeZ7czzQppkR2+HkcgwscMtC5fWWVCiI77NjL
+	m6KMiYH5LY6Bmn8pDrSiBz77bf/lsmQl+LoA4VHnjCcw64TZW9eaY5sUWZMKT6f1
+	qWjq7QbnimunzQHs+On2N4rglIa92nR8GHRDElR67PwxHr8nLLsusrH7TFWtDoOG
+	+O8B6rnVSSvRN08pxwbDKhokk7qocTCOF7XgCmvQsKHscs4LuH7GRrXsKk7m+wKK
+	I/Bk5aTxhA==
+	-----END CERTIFICATE-----
+a3f4273a0a53427e05ece73d19ce93ca|file:///home/alex/sources/eclipse-mosquitto-mqtt-broker-helm-chart/certs/staging-mosquitto-sscerts/server.crt|1|1|V|
+	-----BEGIN CERTIFICATE-----
+	MIIDbTCCAlUCFAmppnzCWZg0eeL7nLwpL+4+cptnMA0GCSqGSIb3DQEBCwUAMHEx
+	CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExHjAcBgNVBAMMFXN0YWdp
+	bmcubG9naWNjbG91ZC5pbzAeFw0yMjA1MTYxNTE2MTVaFw0yMzA1MTYxNTE2MTVa
+	MHUxCzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxp
+	bjETMBEGA1UECgwKbG9naWNjbG91ZDEPMA0GA1UECwwGU2VydmVyMR4wHAYDVQQD
+	DBVzdGFnaW5nLmxvZ2ljY2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAw
+	ggEKAoIBAQCkhQBR1YnEyTTGUL85a/+mxeMCf52gv+LifMvubf71/UNfrNWdeiEi
+	7m5XxH/hqRK7fx7XXpSGWWifJ/tdvoBjMFW6xnolegQ5fy5JvDTGcWHvFPrsdmco
+	UZOK9Tx2bVOtMyyroiiPmi/dj8S3w0D3fsTrOKHzGhaeVlva7MXIKcUuY7/RBBAz
+	yvBudDjQxNo1VHoLmf3w2nATfuRMET7eEQ0oxz8Ub5cgd0JYdTHQaAw8r+1oNlIy
+	wjFQoAhHkNSMrCQ77i8VpCuT3awop4ykRbymXfKLoET7fjqeUnx9CPliqp9ms0ko
+	CNq0AtYHfjEvzkvXfEeZKvB6hnLLLFFxAgMBAAEwDQYJKoZIhvcNAQELBQADggEB
+	AH2MLjQq+imrQCV49h1AI+g4lIuxZjvcysLIU+6VEWHG0A2IFYeQgiafQuFPIlxV
+	c95xTB43qL1liCgWrcGNmIR9sP7SXC2bq4rOzIyUZXjWrymz4K4nE1/erjxFNmQR
+	Xe5gcyc5yZNmVkbn90tZj8HAy3WtcrMZ9TQknXwKDjTeuwe99gfYxHtizH/xc8oW
+	MjdNUx3E+f6XoMT/58QMmIDEJJomZecFnOsA5zG42LnJ7P/JHqZakoCcpHIeBNXz
+	XziPIzAlaiBD8x1nTuJe3vCJZvxLSot/8/mGfe11V8X82DSsFsxdZFcaTU5nOQMw
+	blMU1p/MdvXrBQo8Sv7rIuo=
+	-----END CERTIFICATE-----
+c5b0c33e873d82396b455bc4e38d9ab9|file:///home/alex/sources/eclipse-mosquitto-mqtt-broker-helm-chart/certs/staging-mosquitto-sscerts/server.key|1|1|V|
+	-----BEGIN PRIVATE KEY-----
+	MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCkhQBR1YnEyTTG
+	UL85a/+mxeMCf52gv+LifMvubf71/UNfrNWdeiEi7m5XxH/hqRK7fx7XXpSGWWif
+	J/tdvoBjMFW6xnolegQ5fy5JvDTGcWHvFPrsdmcoUZOK9Tx2bVOtMyyroiiPmi/d
+	j8S3w0D3fsTrOKHzGhaeVlva7MXIKcUuY7/RBBAzyvBudDjQxNo1VHoLmf3w2nAT
+	fuRMET7eEQ0oxz8Ub5cgd0JYdTHQaAw8r+1oNlIywjFQoAhHkNSMrCQ77i8VpCuT
+	3awop4ykRbymXfKLoET7fjqeUnx9CPliqp9ms0koCNq0AtYHfjEvzkvXfEeZKvB6
+	hnLLLFFxAgMBAAECggEAI43GoujF7CwbZpw+pxcq2Yy8YWbY1suBKbcUj0NgLSL9
+	c2izhWPGU3k5iWgixs62CKURMjPzXxFlZbfLP9gSgN0KOeH4ta6nyREuHKs6sIQC
+	SRu8mmuAIZt3ijkzRtibk7uSdMkHgPkuTPBr79aXbKUNw1Oq1BGYP8Gj+izfFUFw
+	0pTSPNvQUl8EyG0tXLx2zcUG4acOEDMn2KxZs7BfhaWWZlahSbqSWKLgUVPciE4V
+	ocVPAxZ2NLXptSJaHLTV0y4uvwJW+OreBOEtJvYtWGDCpurFopsw7q+aQknTdlcB
+	9LeRLZzx53CAkUKskFr8Rh4HxRoaQikhY/tH8bmDnQKBgQDYb4WPbHcnlaVWgbrv
+	XI1wLZpubBs52I/sDFJ8qRDCU4u8XrrxovmfgA18RNMMHoZytjO2iJ40Dr9XoWHF
+	Yxx+z6WM1D+yDnxcfQQs4swJ89n1EsP/TaNkC7U8wTzolGfGefD5ZeMK9kxYwF21
+	hH7RnaaU0k4LW+NLuefpjAaIKwKBgQDCl/n0tsq9qubgl0hf4w6gahhsNHkBT6tz
+	2o9lcuubEeJroeJf6N5ZwOPx/vO5ND87EQ0gsBoXd8BvKoiVFF93aY3U90UcI87F
+	da/ehuwm+7h9kG43Uyg2ojuJHhA2w4x/UXY/Z5rynVlh+xsSP/JLJN3X5ZG7ru4b
+	V5ugmY1C0wKBgQCqg7IFvL5jQVJxROOxkIkdx8/TDvikKim5HjweWlQJxShhz4AY
+	vv1K2+fD77UV5zalSUaUmC2LddLphwswJ1Vb0tvqh41nCmKPuy5+7m8xqBwfKBmi
+	GdiQCWlP5C3ITqMziv5+ffbRvBmKEoPBbhE7s6h5tvYlnM8F6gD7zoWW4QKBgFwH
+	6mRNKxeGw0iG4+jNhvZhFwndyzjOiCTzwgvVzQ366F3FIz3+8WH7cxLZZEU8K4dw
+	6geCoeRlc3Jf6FaxWvErz7Nf+qRzXvBOV43ju744IKnp6+ZogsVL9uJDgKGV3FW+
+	njEge8ywlDxduRDpg1r8pZrc7Q6Zje0KgwTyejeXAoGAVC5BkmNdnbNIRO9jcb9S
+	kt9tQsfLDNz9MWiIvmfS7vttaCm31KIWCqEhtiebNfKNaaAKFMfYwhb1zSALVmel
+	GsPVt87Edjg1RwsPTuCqc3AHpCLFI96U1N1ZiLEuWITWrXMtSlRv5WwIrlrPncne
+	vQ0z+9Gj/sicSr7BSRrzKb4=
+	-----END PRIVATE KEY-----
+56c4759fe21bb35cb978c273ea21937d|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|2|1|V|terraform
+	variable "repository" { type = string }
+b3f2035551f6e48c67489ace9f588f94|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|3|11|v|terraform
+	repository
+f85760dc8a4304059a2781c83eecbae0|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|3|1|V|terraform
+	variable "tag" { type = string }
+b45cffe084dd3d20d928bee85e7b0f21|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|4|37|v|terraform
+	string
+84e2c64f38f78ba3ea5c905ab5a2da27|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|4|37|v|terraform
+	boolean
+6e75ca7cea1ce73fc02f53940c50d301|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|4|1|V|terraform
+	variable "allow_anonymous" { type = bool }
+99e54247ae8db2a4bd053d94b80ff54d|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|5|11|v|terraform
+	allow_anonymous
+2d63c018a9c99823cf12b558a01d9ab1|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|6|11|v|terraform
+	keyvault_id
+26ef759c6458f6523f24d91176042178|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|6|1|V|terraform
+	variable "mqttName" { type = string }
+a99ac22b697fa232d3a7325ba55c66a9|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|6|1|V|terraform
+	variable "mqttName" { type = string }
+	variable "mqttPort" { type = number }
+fe779b0294526a564d685ab7cc44cb15|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|10|1|V|terraform
+	
+	variable "dns_zone_name" { type = string }
+	variable "prefix" { type = string }
+	variable "keyvault_id" { type = string }
+	variable "dns_prefix" { type = string }
+	variable "redis_hostname" { type = string }
+	variable "redis_port" { type = string }
+	variable "smtp_host" { type = string }
+	variable "smtp_port" { type = number }
+	variable "smtp_user" { type = string }
+	variable "smtp_pass" { type = string }
+	variable "smtp_fromName" { type = string }
+	variable "smtp_fromAddress" { type = string }
+ee07a582158d27efbcfe286edce302bb|file:///home/alex/sources/tfmodule-mosquitto/main.tf|12|1|V|terraform
+	      repository          = "eclipse-mosquitto"
+	      tag                 = "2.0.14-openssl"
+	      allow_anonymous     = true
+	      require_certificate = true
+	      mqtt = {
+	        name = "mqtt"
+	        port = 1884
+	      }
+	      mqtts = {
+	        name = "mqtts"
+	        port = 1883
+	      }
+909855917a186e3973b48cdf09a3a7c6|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|95|7|V|terraform
+	  mqtt = {
+6a3c87a0af78267fa57591f9c2a3ed08|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|97|7|V|terraform
+	  mqtts = {
+3616196eb9e2e21353f90faf86ea9a1e|file:///home/alex/sources/tfmodule-mosquitto/main.tf|12|29|v|terraform
+	"eclipse-mosquitto"
+4ae279dbd1ef23f4ee755f567e3c717d|file:///home/alex/sources/tfmodule-mosquitto/main.tf|13|29|v|terraform
+	2.0.14-openssl"
+06996dddd25acda858fce7048bac0f2f|file:///home/alex/sources/tfmodule-mosquitto/main.tf|21|16|v|terraform
+	"mqtts"
+742550f213c626488106375d970a540d|file:///home/alex/sources/tfmodule-mosquitto/main.tf|23|1|V|terraform
+	      caCrt = var.caCrt
+80ce562aafe2ded2fe9f3b143303d440|file:///home/alex/sources/tfmodule-mosquitto/main.tf|24|7|v|terraform
+	caCrt
+0eb9ae25eda6abe27a4389497e7d4390|file:///home/alex/sources/tfmodule-mosquitto/main.tf|24|1|V|terraform
+	      serverCrt = var.serverCrt
+85de77719fdcb49e64049d8475ee6c7e|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|8|1|V|terraform
+	variable "mqttsName" { type = string }
+2fada0b1f38470bcdbf03892544ddc80|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|10|11|v|terraform
+	mqttsName
+b24e08025e7199da150eda4c7f2bdc79|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|10|1|V|terraform
+	variable "caCrt" { type = string }
+a459348ecd9de4215f5fc78b8ba38c1b|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|90|18|V|terraform
+	  replicaCount = 1
+ef30049b0eec060dd623f3662789a4bd|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|90|13|V|terraform
+	  serverKey =
+211bc7a2ff860bb159cb624e4800f341|file:///home/alex/sources/tfmodule-mosquitto/main.tf|23|1|V|terraform
+	      #caCrt = var.caCrt
+42281aa37ff3931415bd47c27ab0a3bc|file:///home/alex/sources/tfmodule-mosquitto/main.tf|23|1|V|terraform
+	      #serverCrt = var.serverCrt
+393bdbe2321927eb7acd0386dce6d5ee|file:///home/alex/sources/tfmodule-mosquitto/main.tf|23|1|V|terraform
+	      #serverKey = var.serverKey
+aeeddfbcc94c80cf1c65e232eba6b82b|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|10|24|V|terraform
+	#variable "caCrt" { type = string }
+	#variable "serverCrt" { type = string }
+	#variable "serverKey" { type = string }
+2f2cb1a529c0ff8073136cae8420b084|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|91|3|v|terraform
+	serverKey
+65e3093656cfcbafc2b2c850e3a1fc29|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|96|5|V|terraform
+	    port = 1884
+	  }
+902b0d55fddef6f8d651fe1035b7d4bd|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|53|22|v|yaml
+	Error
+940e5d06113479c9d0981f05c42bfcb0|file:///home/alex/sources/aks-staging-ops/cluster_resources.tf|82|1|V|terraform
+	resource "kubernetes_secret" "debug-mode" {
+	  metadata {
+	    name = "debug-mode"
+	  }
+	  data = {
+	    isDebug = local.isDebug
+	  }
+	}
+ad42f6697b035b7580e4fef93be20b4d|file:///home/alex/sources/tfmodule-mosquitto/main.tf|1|31|v|terraform
+	debug
+e97fdc6eb1ed3868d7d41c6902b09500|file:///home/alex/sources/tfmodule-mosquitto/main.tf|3|13|v|terraform
+	debug-mode
+937c51c368d0baef3c583bd9f4ee078e|file:///home/alex/sources/tfmodule-mosquitto/main.tf|1|31|v|terraform
+	mqtt-broker-certs
+3059869844d21a1a839395887706894c|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|9|1|V|terraform
+	variable "mqttsPort" { type = number }
+6825b596dd05c495d1e14ec9cd0e242a|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|10|11|v|terraform
+	mqttsPort
+318f765cd189e02f18bb8aaaeedeb62f|file:///home/alex/sources/tfmodule-mosquitto/main.tf|11|19|v|terraform
+	io-key-staging-20220511-pfx-base64
+3e3893acf6d60fd564ba19f8a5f10b79|file:///home/alex/sources/tfmodule-mosquitto/main.tf|10|1|V|terraform
+	data "azurerm_key_vault_secret" "iokey-base64" {
+	  name         = "io-key-staging-20220511-pfx-base64"
+	  key_vault_id = var.keyvault_id
+	}
+	
+481ef6dbcc3f87fb143b77c2109eceac|file:///home/alex/sources/tfmodule-mosquitto/main.tf|6|5|v|terraform
+	isDebug
+6aae77bf5ff8a3e690064ed1bc019b20|file:///home/alex/sources/tfmodule-mosquitto/main.tf|6|1|V|terraform
+	    ca.crt = "${file("${path.module}/certs/ca.crt")}"
+0b120dea5b12611760beced6c825ed31|file:///home/alex/sources/tfmodule-mosquitto/main.tf|7|1|V|terraform
+	    server.crt = "${file("${path.module}/certs/server.crt")}"
+2a5fa8135589ab5301bd7d0456bae635|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|10|19|V|terraform
+	variable "keyvault_id" { type = number }
+eddbb36fd354c113509b3d8508912419|file:///home/alex/sources/tfmodule-mosquitto/main.tf|12|31|v|terraform
+	mqtt-access
+bd2cbddf78629fcb676248f271206052|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|99|3|V|terraform
+	  keyvault_id         = local.keyvault_id
+787597f8ca68c21b1686643f4934f5e8|file:///home/alex/sources/tfmodule-mosquitto/main.tf|17|11|V|terraform
+	    isDebug = local.isDebug
+45405ec5f0abaa6d5bb47b1e7edd97cf|file:///home/alex/sources/tfmodule-mosquitto/main.tf|7|1|V|terraform
+	    server-crt = "${file("${path.module}/certs/server.crt")}"
+	    server-key = "${file("${path.module}/certs/server.key")}"
+cf1e8c14e54505f60aa10ceb8d5d8ab3|file:///home/alex/sources/tfmodule-mosquitto/main.tf|9|5|v|terraform
+	server
+0680edcad3b71d11a279cf30ca5bfd06|file:///home/alex/sources/tfmodule-mosquitto/main.tf|9|1|V|terraform
+	    client-crt = "${file("${path.module}/certs/client.crt")}"
+	    client-key = "${file("${path.module}/certs/client.key")}"
+26d4741e34eb4d62fe9c24445c709994|file:///home/alex/sources/tfmodule-mosquitto/main.tf|7|53|V|terraform
+	    server-crt = "${file("${path.module}/certs/server.crt")}"
+ae508cb55129e59e0ea6155dd9c698d9|file:///home/alex/sources/tfmodule-mosquitto/main.tf|7|53|V|terraform
+	    server-key = "${file("${path.module}/certs/server.key")}"
+e89563dd1c4ae5edeb2f378540749362|file:///home/alex/sources/stackit-tfmodule-keycloak/keycloak.yaml|79|1|V|yaml
+	keycloakConfigCli:
+	  enabled: true
+	  image:
+	    registry: docker.io
+	    repository: adorsys/keycloak-config-cli
+	    tag: latest
+	  annotations:
+	      helm.sh/hook: "post-install,post-upgrade,post-rollback"
+	      helm.sh/hook-delete-policy: "hook-succeeded,before-hook-creation"
+	      helm.sh/hook-weight: "5"
+	  command: ["java", "-jar", "/app/keycloak-config-cli.jar"]
+	  extraEnvVars:
+	    - name: KEYCLOAK_URL
+	      value: "https://auth.${dns.hostname}/auth"
+	    - name: KEYCLOAK_SSLVERIFY
+	      value: "false"
+	    - name: KEYCLOAK_USER
+	      value: "${admin.user}"
+	    - name: KEYCLOAK_PASSWORD
+	      value: "${admin.pass}"
+	  existingConfigmap: ${realmConfigMap}
+c3dd56d92d9d37e14889d7f51c01dcb4|file:///home/alex/sources/aks-staging-ops/.terraform/modules/keycloak/keycloak.yaml|79|1|V|yaml
+	keycloakConfigCli:
+	  enabled: true
+	  image:
+	    registry: docker.io
+	    repository: bitnami/keycloak-config-cli
+	    tag: latest
+	  annotations:
+	      helm.sh/hook: "post-install,post-upgrade,post-rollback"
+	      helm.sh/hook-delete-policy: "hook-succeeded,before-hook-creation"
+	      helm.sh/hook-weight: "5"
+	  command: ["java", "-jar", "/opt/bitnami/keycloak-config-cli/keycloak-config-cli.jar"]
+	  existingConfigmap: ${realmConfigMap}
+	
+f82a5e296307e4f86c54f451ca8229c8|file:///home/alex/sources/aks-staging-ops/.terraform/modules/keycloak/keycloak.yaml|90|1|V|yaml
+	  extraEnvVars:
+	    - name: KEYCLOAK_URL
+	      value: "https://auth.${dns.hostname}/auth"
+	    - name: KEYCLOAK_SSLVERIFY
+	      value: "false"
+	    - name: KEYCLOAK_USER
+	      value: "${admin.user}"
+	    - name: KEYCLOAK_PASSWORD
+	      value: "${admin.pass}"
+bce51dc74b3d9c0284931a1cdc1fdb29|file:///home/alex/sources/aks-staging-ops/.terraform/modules/keycloak/keycloak.yaml|79|1|V|yaml
+	keycloakConfigCli:
+	  enabled: true
+	  image:
+	    registry: docker.io
+	    repository: adorsys/keycloak-config-cli
+	    tag: latest
+	  annotations:
+	      helm.sh/hook: "post-install,post-upgrade,post-rollback"
+	      helm.sh/hook-delete-policy: "hook-succeeded,before-hook-creation"
+	      helm.sh/hook-weight: "5"
+	  command: ["java", "-jar", "/app/keycloak-config-cli.jar"]
+	  existingConfigmap: ${realmConfigMap}
+d9460f31e277f19ea7208b7ce3aee291|file:///home/alex/sources/tfmodule-keycloak/keycloak.yaml|78|1|V|yaml
+	
+	keycloakConfigCli:
+	  enabled: true
+	  image:
+	    registry: docker.io
+	    repository: bitnami/keycloak-config-cli
+	    tag: latest
+	  annotations:
+	      helm.sh/hook: "post-install,post-upgrade,post-rollback"
+	      helm.sh/hook-delete-policy: "hook-succeeded,before-hook-creation"
+	      helm.sh/hook-weight: "5"
+	  command: ["java", "-jar", "/opt/bitnami/keycloak-config-cli/keycloak-config-cli.jar"]
+	  existingConfigmap: ${realmConfigMap}
+fb0686a196757c2c70388aec3c059326|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|88|1|V|terraform
+	module "mosquitto-mqtt" {
+	  source              = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-mosquitto"
+	  replicaCount        = 1
+	  repository          = "eclipse-mosquitto"
+	  tag                 = "2.0.14-openssl"
+	  allow_anonymous     = true
+	  require_certificate = true
+	  mqttName            = "mqtt"
+	  mqttPort            = 1884
+	  mqttsName           = "mqtts"
+	  mqttsPort           = 1883
+	}
+	
+	module "apollo-stack" {
+	  source      = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-apollo"
+	  keyvault_id = local.keyvault_id
+	}
+3b9d18cdd655c69233317834d728614e|file:///home/alex/sources/tfmodule-apollo/variables.tf|7|1|V|terraform
+	variable "iokey_base64_kvsecret" { type = string }
+af0d4716f3fff86657156ab413127a62|file:///home/alex/sources/tfmodule-apollo/variables.tf|7|11|v|terraform
+	iokey_base64_kvsecret
+ebc1bf01b512717f836a0224d707d9b7|file:///home/alex/sources/tfmodule-apollo/main.tf|3|18|v|terraform
+	"io-key-staging-20220511-pfx-base64"
+370ebb857a24062428ac5991a92cac1f|file:///home/alex/sources/tfmodule-apollo/main.tf|8|18|v|terraform
+	"io-key-staging-20220511-pfx-pass"
+c6b078ebe0e7ac859104636c0dd55483|file:///home/alex/sources/tfmodule-apollo/variables.tf|8|1|V|terraform
+	variable "iokey_pass_kvsecret" { type = string }
+487b25a68a5442879c592bbcd7f8974a|file:///home/alex/sources/tfmodule-apollo/variables.tf|9|11|v|terraform
+	iokey_pass_kvsecret
+de17bb4451021bbe1a29cf546aa1792e|file:///home/alex/sources/tfmodule-apollo/variables.tf|9|1|V|terraform
+	variable "psql_port" { type = number }
+630c39aff7e12bf0f857bbf04bfca783|file:///home/alex/sources/tfmodule-apollo/main.tf|22|24|v|terraform
+	"mqtt-mosquitto-eclipse-mosquitto.default.svc"
+8dac22eb6622a68a7d27e9c126718bd3|file:///home/alex/sources/tfmodule-apollo/main.tf|22|24|v|terraform
+	mqtt-mosquitto-eclipse-mosquitto.default.svc"
+7fc8ac8fa3c70a4b983ebef1d0b44465|file:///home/alex/sources/aks-dev-ops/cluster_modules.tf|101|1|V|terraform
+	module "apollo-stack" {
+	  source      = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-apollo"
+	  keyvault_id = local.keyvault_id
+	  host_name = "apollo.staging.logiccloud.io"
+	  iokey_base64_kvsecret = "io-key-staging-20220511-pfx-base64"
+	  iokey_pass_kvsecret = "io-key-staging-20220511-pfx-pass"
+	  psql_host = "apollo-postgresql"
+	  psql_port = "5432"
+	  mqtt_host = "mqtt-mosquitto-eclipse-mosquitto.default.svc"
+	  mqtt_port = "1884"
+	  iokey_port = "8883"
+	}
+d2691eb7f109a1080dfcd23d76755e1e|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|113|1|V|terraform
+	module "apollo-stack" {
+	  source      = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-apollo"
+	  keyvault_id = local.keyvault_id
+	}
+71cc7892e2e76dba7eaa8057b050fef1|file:///home/alex/sources/aks-dev-ops/cluster_modules.tf|88|1|V|terraform
+	module "mosquitto-mqtt" {
+	  source              = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-mosquitto"
+	  replicaCount        = 1
+	  repository          = "eclipse-mosquitto"
+	  tag                 = "2.0.14-openssl"
+	  allow_anonymous     = true
+	  require_certificate = true
+	  mqttName            = "mqtt"
+	  mqttPort            = 1884
+	  mqttsName           = "mqtts"
+	  mqttsPort           = 1883
+	}
+	
+	module "apollo-stack" {
+	  source                = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-apollo"
+	  keyvault_id           = local.keyvault_id
+	  host_name             = "apollo.dev.logiccloud.io"
+	  iokey_base64_kvsecret = "io-key-staging-20220511-pfx-base64"
+	  iokey_pass_kvsecret   = "io-key-staging-20220511-pfx-pass"
+	  psql_host             = "apollo-postgresql"
+	  psql_port             = "5432"
+	  mqtt_host             = "mqtt-mosquitto-eclipse-mosquitto.default.svc"
+	  mqtt_port             = "1884"
+	  iokey_port            = "8883"
+	}
+b100bd340fd746e629de82176444c79c|file:///home/alex/sources/src_webiq/docker-connect/docker-compose.yml|16|1|V|yaml
+	      - ./app:/apps/app
+30252e4367734003483677e0cd5d0e66|file:///home/alex/sources/src_webiq/docker-connect/server/opt/start-webiq-server.sh|2|1|V|sh
+	LD_LIBRARY_PATH="/opt/webiq:${LD_LIBRARY_PATH}" /opt/webiq/connect --loglevel-std highest --autostart-project app --no-logfile --project-directory=/apps --license-agent-host host.docker.internal:10121 2>&1
+df26d2a945b8a9de2c2ef16a3d97c82c|file:///home/alex/sources/src_webiq/docker-connect/server/opt/start-webiq-server.sh|3|90|v|sh
+	 --autostart-project app
+e78db561a66c6f9dcdb03b85b291dfac|file:///home/alex/sources/src_webiq/docker-connect/docker-compose/templates/env-configmap.yaml|9|25|v|yaml
+	webiq
+ccb0586bbd0cdf54de46dc960311aa88|file:///home/alex/sources/src_webiq/docker-connect/docker-compose/templates/env-configmap.yaml|9|25|v|yaml
+	webiq-server-env
+9386cc91bc28a22d90ecae84bed0f83c|file:///home/alex/sources/aks-demo-ops/cluster_modules.tf|106|28|v|terraform
+	io-key-staging-20220511-pfx-pass
+e10fff2b38adc1d43b19d605290a9161|file:///home/alex/Downloads/demo.logiccloud.io/demo.logiccloud.io_20220518.pfx.base64|1|1|V|
+	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
+b08a4920d6538783c2ad0b2f1a4f5a42|file:///home/alex/sources/aks-demo-ops/cluster_modules.tf|105|47|v|terraform
+	20220518
+42b51ca9061aeaca792cb6abd72d4266|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|40|23|V|yaml
+	            - name: MultiTenancy__Static
+	              value: "true"
+3f3aebff2780e5fb46a395c5f00a04c8|file:///home/alex/.config/qtile/config.py|148|55|v|python
+	, "monadtall", "monadtall",
+5c93021f868befdb9c046e4fd948ffe2|file:///home/alex/.config/qtile/config.py|148|71|v|python
+	monadtall
+8120fe8e326a5b7814ae4d1587bbfd6e|file:///home/alex/.config/qtile/scripts/autostart.sh|28|48|v|sh
+	archwave
+48fa4c38043122c03a61b1fb03d378ee|file:///home/alex/.config/qtile/scripts/autostart.sh|28|48|v|sh
+	wild
+847421e33e556b05de6c389f7c7bcc37|file:///home/alex/.config/qtile/config.py|301|1|v|python
+	               # widget.TextBox(
+538505bd4172f3b135602409c426c44e|file:///home/alex/.config/qtile/config.py|310|1|V|python
+	                        border_color = colors[2],
+	                        fill_color = colors[8],
+	                        graph_color = colors[8],
+	                        background=colors[1],
+	                        border_width = 1,
+	                        line_width = 1,
+00348f8e477f44312153556224ad5bc8|file:///home/alex/.config/qtile/config.py|317|1|V|python
+	                        type = "box"
+273f59e0cdc32b84a2cf5e83100755f6|file:///home/alex/.config/qtile/config.py|369|1|V|python
+	               widget.Sep(
+	                        linewidth = 1,
+	                        padding = 10,
+	                        foreground = colors[2],
+	                        background = colors[1]
+	                        ),
+77f7edc298484800ba1c74cd6e31e417|file:///home/alex/.config/qtile/config.py|301|16|V|python
+	               widget.TextBox(
+	                        font="FontAwesome",
+	                        text="  ",
+	                        foreground=colors[6],
+	                        background=colors[1],
+	                        padding = 0,
+	                        fontsize=16
+	                        ),
+	               widget.CPUGraph(
+	                        border_color = colors[2],
+	                        fill_color = colors[8],
+	                        graph_color = colors[8],
+	                        background=colors[1],
+	                        border_width = 1,
+	                        line_width = 1,
+	                        core = "all",
+	                        type = "box"
+	                        ),
+	               widget.Sep(
+	                        linewidth = 1,
+	                        padding = 10,
+	                        foreground = colors[2],
+	                        background = colors[1]
+	                        ),
+	               widget.TextBox(
+	                        font="FontAwesome",
+	                        text="  ",
+	                        foreground=colors[4],
+	                        background=colors[1],
+	                        padding = 0,
+	                        fontsize=16
+	                        ),
+	               widget.MemoryGraph(
+	                        border_color = colors[2],
+	                        fill_color = colors[8],
+	                        graph_color = colors[8],
+	                        background=colors[1],
+	                        border_width = 1,
+	                        line_width = 1,
+	                        type = "box"
+	                       ),
+	               widget.Sep(
+	                        linewidth = 1,
+	                        padding = 10,
+	                        foreground = colors[2],
+	                        background = colors[1]
+	                        ),
+1cefc956234b39152e1d68f58deca08d|file:///home/alex/.config/alacritty/alacritty.yml|182|1|V|yaml
+	  primary:
+	   background: '#222222'
+	   foreground: '#F9F9F9'
+f28d1e9a2b7b1c0c6a8dd3045b7c34d9|file:///home/alex/.config/alacritty/alacritty.yml|187|27|v|yaml
+	  #foreground: '#F9F9F9'
+274c84315065db29e975fc0c84c678e5|file:///home/alex/.config/alacritty/alacritty.yml|213|1|V|yaml
+	  #primary:
+	   #background: '#222222'
+	   #foreground: '#F9F9F9'
+400ad8715c5e32a8df16e125bf5980c5|file:///home/alex/.config/alacritty/alacritty.yml|212|1|V|yaml
+	  # Default colors
+5c0e096d0b3c7697492914f6602223de|file:///home/alex/.config/alacritty/alacritty.yml|216|1|V|yaml
+	  # Normal colors
+6db2b998eace1e2c05e99925f7bfe2d5|file:///home/alex/.config/alacritty/alacritty.yml|226|1|V|yaml
+	  # Bright colors
+0edb4b05d3f3031bb42652c0251cef6b|file:///home/alex/sources/src_webiq/docker-connect/Dockerfile|36|1|V|dockerfile
+	RUN /opt/webiq/connectcfg user add ${WEBIQ_SERVER_USER_NAME} ${WEBIQ_SERVER_PASSWORD}
+b3b6be74adc989650246ac21c45d9926|file:///home/alex/sources/src_webiq/docker-connect/Dockerfile|37|36|v|dockerfile
+	${WEBIQ_SERVER_USER_NAME} ${WEBIQ_SERVER_PASSWORD}
+6a8fd408760f3de39dfa62b37550fadc|file:///home/alex/sources/src_webiq/docker-connect/.env|1|24|v|sh
+	webiqlcpublisher
+5c32db89a42d1ac90d62f41b83f50302|file:///home/alex/sources/src_webiq/docker-connect/.env|2|23|v|sh
+	l0g1CCl0uD
+ee434023cf89d7dfb21f63d64f0f9d74|file:///home/alex/sources/webiq-server-chart/values.yaml|8|63|v|yaml
+	nginx
+63109e96ba19b00f465a29edc906e281|file:///home/alex/sources/webiq-server-chart/values.yaml|8|37|v|yaml
+	autosen_gmbh/apollo/apollo
+7e0cb7876dabd7d7ffb49183d6b28b64|file:///home/alex/sources/webiq-server-chart/values.yaml|50|13|v|yaml
+	chart-example.local
+61d64ad03f50d83544813325543781fa|file:///home/alex/sources/apollo-stack-chart/templates/apollo-ingress.yaml|6|5|v|yaml
+	nginx.ingress.kubernetes.io/rewrite-target: /
+	    c
+0c00b3d438ed12f4cad9fc780e032568|file:///home/alex/sources/apollo-stack-chart/templates/apollo-ingress.yaml|6|1|V|yaml
+	    nginx.ingress.kubernetes.io/rewrite-target: /
+	    cert-manager.io/issuer: letsencrypt
+d788c978ec2e38bf3673c8a88167b79d|file:///home/alex/sources/webiq-server-chart/values.yaml|47|5|V|yaml
+	    kubernetes.io/ingress.class: nginx
+c82bcbe2f1e3c8ce79791d0d8798986b|file:///home/alex/sources/apollo-stack-chart/templates/apollo-ingress.yaml|9|1|V|yaml
+	  ingressClassName: nginx
+a2068857d387edff4371f24eb80e0ed0|file:///home/alex/sources/webiq-server-chart/values.yaml|54|21|v|yaml
+	ImplementationSpecific
+a711d3ae8b7f4fdedb93a9ba77853b31|file:///home/alex/sources/apollo-stack-chart/templates/apollo-deployment.yaml|74|1|V|yaml
+	        - name: dockercfg
+80791b3ae7002cb88c246876d9faa8f8|file:///home/alex/sources/webiq-server-chart/templates/service.yaml|11|19|v|yaml
+	http
+3b22d6380e7981e0efa4d7f6d9ca3737|file:///home/alex/sources/webiq-server-chart/values.yaml|60|19|v|yaml
+	chart-example-tls
+bc02375d985a5d2ba0dec881e3701280|file:///home/alex/sources/webiq-server-chart/values.yaml|55|13|v|yaml
+	webiq.demo.logiccloud.io
+a7ad445f04459bf490643e88ff3dc62c|file:///home/alex/sources/webiq-server-chart/values.yaml|16|25|v|yaml
+	-server
+02c66739f1fb4fc9954c762b11b3c697|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|114|9|v|terraform
+	io-key-sim
+8697e95d9f44651e62f8e98145acfbc4|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|115|13|v|terraform
+	git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-io-key-sim
+376e508a70c43bf86ad1cb32de6c750f|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|1|1|V|terraform
+	resource "kubernetes_secret" "mqtt-broker-certs" {
+	  metadata {
+	    name = "mqtt-broker-certs"
+	  }
+	  data = {
+	    ca-crt = "${file("${path.module}/certs/ca.crt")}"
+	    client-crt = "${file("${path.module}/certs/client.crt")}"
+	    client-key = "${file("${path.module}/certs/client.key")}"
+	  }
+	}
+	
+	resource "kubernetes_secret" "mqtt-access" {
+	  metadata {
+	    name = "mqtt-access"
+	  }
+	  data = {
+	    BROKER_URL = "mqtts://staging.logiccloud.io"
+	    CLIENT_ID = "staging-adapter"
+	    CLEAN_START = true
+	    HOSTNAME = "staging.logiccloud.io"
+	    PORT = 9883
+	  }
+	}
+	
+7720b66e8cea95aaf412de874612e804|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|2|14|v|terraform
+	mqtt-mosquitto
+82e670a52666e06692723ff36eb508e6|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|3|17|v|terraform
+	eclipse-mosquitto
+e9419a9f0f4d405959091322e7ea682f|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|1|1|V|yaml
+	# Default values for eclipse-mosquitto.
+	# This is a YAML-formatted file.
+	# Declare variables to be passed into your templates.
+	
+e334668b5d02ea0cd7ddc31381e2f70d|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|1|1|v|yaml
+	replicaCount: ${replicaCount}
+1298cbd6422f3c4aaff7e2bbc01c4d9b|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|1|1|V|yaml
+	replicaCount: ${replicaCount}
+	
+	image:
+	  repository: ${repository}
+	  tag: ${tag}
+	  pullPolicy: IfNotPresent
+	
+	imagePullSecrets: []
+	nameOverride: ""
+	fullnameOverride: ""
+	
+	container:
+	  ports:
+	    mqtt:
+	      name: ${mqtt.name}
+	      port: ${mqtt.port}
+	
+	service:
+	  type: ClusterIP
+	  ports:
+	    mqtt:
+	      name: ${mqtt.name}
+	      port: ${mqtt.port}
+	
+	resources: {}
+	  # We usually recommend not to specify default resources and to leave this as a conscious
+	  # choice for the user. This also increases chances charts run on environments with little
+	  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+	  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+	  # limits:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	  # requests:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	
+	nodeSelector: {}
+	
+	tolerations: []
+	
+	affinity: {}
+	
+	config: |-
+	  persistence true
+	  persistence_location /mosquitto/data/
+	  log_dest stdout
+	  listener ${mqtt.port}
+	  listener ${mqtts.port}
+	  protocol mqtt
+	  cafile /mosquitto/config/certs/ca.crt
+	  certfile /mosquitto/config/certs/server.crt
+	  keyfile /mosquitto/config/certs/server.key
+	  require_certificate ${require_certificate}
+	  allow_anonymous ${allow_anonymous}
+	
+	certs:
+	  ca:
+	    crt: |-
+	      -----BEGIN CERTIFICATE-----
+	      MIIDszCCApugAwIBAgIUJ0vEtAdpkdEYWEPvFjQru79gfFswDQYJKoZIhvcNAQEL
+	      BQAwaTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	      bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEWMBQGA1UEAwwN
+	      bG9naWNjbG91ZC5pbzAeFw0yMjA1MDMwOTUxMjZaFw0yMzA1MDMwOTUxMjZaMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqjCKmWBTk
+	      WSmSLjBGKME/8GOag0n/92ZNXG41HHlOHHy5wnBT43VD/RVMVDg6jYCuykoROhT1
+	      HYWKAT1dHSGF8YCGgDYVmzgBETWbUSVBLW+f94euOmMCLkAlWjeEP9PJ2LPsHEtb
+	      5ctmlbACpn3q5XYkcJAxkolFChZFw2t2cOrRaoO0+oswBdMLTAfXltgjaRxjvKJ6
+	      Ci/zQk0OgTeJYq2xYYJ5ohoDdXmtwRqRUm7RuMqMR6zdCmAAqyAchZapIUTZA59J
+	      oUsltSybFBnUbWVHcNSdmK4QdqAdYMBdMG7w9ve1mrCnzwMpGAYqiGOWvHRdcTFs
+	      1HKkYW7k9OBBAgMBAAGjUzBRMB0GA1UdDgQWBBTJW498dJLrA9nZA5WLgLziK8S9
+	      EzAfBgNVHSMEGDAWgBTJW498dJLrA9nZA5WLgLziK8S9EzAPBgNVHRMBAf8EBTAD
+	      AQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBUYzzby8XFUOMBAjoaYYBAqq81BmCdrk42
+	      /Je6OzfwPC7d67TAT9Db4QhJqJrygZKx/olbwRj0Dn65sDWNdaCpjjUUg0Vv5bWK
+	      BvqnzC30xn41bAdUVAAjKCDNlS233qgTg3DrNL133uTHuADvAKBNh6b4pNxxwjwp
+	      f8SZKfQdqaJ1Eo0TmCTrzYRLvdDZq7fYjLf44pKkJX73K3Vmy8dS7/KsQuek3aDU
+	      3727E+Mts/7w1g1xF6cKSNmf3FXnho0ShQa41t0IBFMeeIvcsHy+kQM3/2/FwDjC
+	      5nVdjmJ1AHu6pgmrepNYtRi7Q/oWI78xUytiocx8NQnX0uH3znmB
+	      -----END CERTIFICATE-----
+	  server:
+	    crt: |-
+	      -----BEGIN CERTIFICATE-----
+	      MIIDXTCCAkUCFFY9Dg/A2u+sfsWmEa7W4A+3tz3qMA0GCSqGSIb3DQEBCwUAMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wHhcNMjIwNTAzMDk1MTI2WhcNMjMwNTAzMDk1MTI2WjBtMQswCQYD
+	      VQQGEwJERTEPMA0GA1UECAwGQmVybGluMQ8wDQYDVQQHDAZCZXJsaW4xEzARBgNV
+	      BAoMCmxvZ2ljY2xvdWQxDzANBgNVBAsMBlNlcnZlcjEWMBQGA1UEAwwNbG9naWNj
+	      bG91ZC5pbzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKryWEbaiGT4
+	      JZT26xIC3ehzVWVfR08qIeAa47DOFz8cqkL2lL9XZhhunPkLPvLQqnwdacdJXLC9
+	      gUbMs6eLlR0E6oULJb2jvfnQU1elDk+fdTkLJcuk2eVwwS+xSAqbWQsqfx0/pXY7
+	      3Ht67ge5yFFAtdw63cK8WzQqKhJ/KWg5xTGqExwbeWImTaa7/h/TQ3LhseZIWtpj
+	      VMVB+p/HJK7pOjQAYkIzSY8wYl/FYBdws53lexDjyiRTqhPzjEdc7tX2BdLD3xzk
+	      uz9ZUxO+LzZqVQp/AItY4fEakADfv2xMjALNcT6MdnH5m7IWNBnNL7KJ5AfZwRaB
+	      VG6iK+Y+iG0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAUqziMJpZt6j9X8xdtQCS
+	      z8TPaw0yaieO/yH1x9zbkh5VQ8mX2zo+ZHim8ilqx+19Abwv16uM5qcByTxvPYmT
+	      qkrzvCq87O0Tf6v79TG8JWHXfrz0nNLp2gn6Xe7FNdEl3HVKqOLmNPYcJMI6ZASb
+	      2OybmkdGlLXy5BBICKMnUN/ySCbb3tRbmJjyk9g2KzzoFlkj+myLQzhOipb0ZYXa
+	      jCPL5Cg6h/jyFb5gVIbbEbg0T6dI6wygkps3pvXIvx+e+45BRbaypqnp4u2RmiDO
+	      xe59lcwls7TW7JF4Jv4Akv/B3zd+wEYB3PLyoOHHBXR8TkXwJ/84h+JiABnn3UtB
+	      cQ==
+	      -----END CERTIFICATE-----
+	    key: |-
+	      -----BEGIN PRIVATE KEY-----
+	      MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCq8lhG2ohk+CWU
+	      9usSAt3oc1VlX0dPKiHgGuOwzhc/HKpC9pS/V2YYbpz5Cz7y0Kp8HWnHSVywvYFG
+	      zLOni5UdBOqFCyW9o7350FNXpQ5Pn3U5CyXLpNnlcMEvsUgKm1kLKn8dP6V2O9x7
+	      eu4HuchRQLXcOt3CvFs0KioSfyloOcUxqhMcG3liJk2mu/4f00Ny4bHmSFraY1TF
+	      QfqfxySu6To0AGJCM0mPMGJfxWAXcLOd5XsQ48okU6oT84xHXO7V9gXSw98c5Ls/
+	      WVMTvi82alUKfwCLWOHxGpAA379sTIwCzXE+jHZx+ZuyFjQZzS+yieQH2cEWgVRu
+	      oivmPohtAgMBAAECggEBAIKCNqcRXCRJ1tddk6XSjnxS4RVdomFr9yTTIpXvIYxL
+	      ZClve6yBGy7389umnE5gxGexRPqipaNBapsU2OvHAvZ+tFUSZ6PaiMVaKOa22rAr
+	      OyFrw1Uv7DLg3Hx+ylNeuqJttVItLzOPDAsxlNxNGAQAdVdHkdqEVtUCg9BPSNuK
+	      T/XK8OOgzkSDLOgnP3kC4+KoQKuqNFFB/ksdEULm1161pVl9lD6Tn5CPK5qmUE3s
+	      a0cuUR4ycN8BsYeiSyzhxaYklSJIw0oSXd+CRVmnxS9AcPaetyy5xNwloDNGkoqT
+	      aH391hNiXLI2tuZoFb3fbVkTI3iqdgdH88gMizgqpIECgYEA0sqJX8oa8rKryrty
+	      oYTvcH/dVK8hukLohmfcDQhZ+9i94wfhcJlnkGEBGVREjkT4a+wTMdmWvSezplMa
+	      74o0EpmKPuksj4NMEhBUtPpnBEFAPmNO9kDS/LfQ4D17LwfVr0j9rar0R4XJVJO7
+	      Fayzen2nYRdOpbKGk8M1JnkePj0CgYEAz5wml1m6xJvtEsIWadCHmWlE9WGVNKVn
+	      wSX4ExCoHvQq2Vnt8HYXfPKih20tkaZHpYDBja7Dhf7P4dBRxG/lMluUVZEd4Ktn
+	      UUMS9bwxkTtQVqfDKWRlxqh6QtPyKNlBF6P4+3kw4/usl+R5Ch0iKhC6nsuCpqSh
+	      x/c9pV11xfECgYAvFZyv7+YrFiv3gf1uBNKzL2ySEPiYsX9dHm/x3U60ScrInqcF
+	      zs5qWrCzJraVjORsvvPeq7rXD7o6Sc/3d8h/6xoNSWpxuCNS2aECN/iw455lESu/
+	      J+W5G5olrLYKYFaj68r2cvxTyZeaM9GTWttQXib4MguYSZN0CCOkL2PJBQKBgDfa
+	      G2u2QQ+pnyLfwiXfastzzZByGzDZmssUiuOeJIyHRYvJrMB3FKSRpfXnAk5fvICi
+	      3e9e580Bmy113LmLHM7qYkKO0snhct8iu1QOuAsJOPjHEzLshpDmPFYELO6eW+uf
+	      Oll05hk/WNRYK9PzuIA2le4oc9KfEcL5GcWGGiwRAoGBALIRI5FcAb3vaqN63oHH
+	      OGLfWReDL4iwUA5aYSKFmKLjObFCdUa6/Pnz4Ssmn1j9phXUoMThRnRCSJGjaaM+
+	      2KtH6M2jHHGgKmWOZ7d10mk11MJjFRdmP0Z4tFMoxEtobd9VPIgrDCzzy0GxaBlO
+	      ROVIQ4NlgbSZHVzeuCyHQYCo
+	      -----END PRIVATE KEY-----
+	
+	
+	## Persist data to a persistent volume
+	persistence:
+	  enabled: true
+	  ## database data Persistent Volume Storage Class
+	  ## If defined, storageClassName: <storageClass>
+	  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+	  ## If undefined (the default) or set to null, no storageClassName spec is
+	  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+	  ##   GKE, AWS & OpenStack)
+	  ##
+	  ##
+	  # storageClass: "-"
+	  accessMode: ReadWriteOnce
+	  size: 8Gi
+	  annotations:
+	    pv.kubernetes.io/provisioned-by: disk.csi.azure.com
+	  storageClass: default
+	
+	## Security context
+	securityContext:
+	  enabled: false
+	  runAsUser: 999
+	  fsGroup: 999
+131984b6c67f488f75544f0d3dc007d1|file:///home/alex/sources/webiq-server-chart/values.yaml|1|1|V|yaml
+	# Default values for webiq-server-chart.
+	# This is a YAML-formatted file.
+	# Declare variables to be passed into your templates.
+	
+	replicaCount: 1
+	
+	image:
+	  repository: logiccloud.azurecr.io/webiq/webiq-server
+	  pullPolicy: IfNotPresent
+	  # Overrides the image tag whose default is the chart appVersion.
+	  tag: "latest"
+	
+	imagePullSecrets:
+	  - name: dockercfg
+	nameOverride: ""
+	fullnameOverride: "webiqsrv"
+	
+	serviceAccount:
+	  # Specifies whether a service account should be created
+	  create: true
+	  # Annotations to add to the service account
+	  annotations: {}
+	  # The name of the service account to use.
+	  # If not set and create is true, a name is generated using the fullname template
+	  name: ""
+	
+	podAnnotations: {}
+	
+	podSecurityContext: {}
+	  # fsGroup: 2000
+	
+	securityContext: {}
+	  # capabilities:
+	  #   drop:
+	  #   - ALL
+	  # readOnlyRootFilesystem: true
+	  # runAsNonRoot: true
+	  # runAsUser: 1000
+	
+	container:
+	  port: 10123
+	
+	service:
+	  type: ClusterIP
+	  port: 80
+	
+	ingress:
+	  enabled: true
+	  className: "nginx"
+	  annotations: {}
+	    kubernetes.io/tls-acme: "true"
+	    nginx.ingress.kubernetes.io/rewrite-target: /
+	    cert-manager.io/issuer: letsencrypt
+	  hosts:
+	    - host: webiq.demo.logiccloud.io
+	      paths:
+	        - path: /
+	          pathType: Prefix
+	  tls: []
+	    - secretName: webiq-server-cert
+	      hosts:
+	        - webiq.demo.logiccloud.io
+	
+	resources: {}
+	  # We usually recommend not to specify default resources and to leave this as a conscious
+	  # choice for the user. This also increases chances charts run on environments with little
+	  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+	  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+	  # limits:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	  # requests:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	
+	autoscaling:
+	  enabled: false
+	  minReplicas: 1
+	  maxReplicas: 100
+	  targetCPUUtilizationPercentage: 80
+	  # targetMemoryUtilizationPercentage: 80
+	
+	nodeSelector: {}
+	
+	tolerations: []
+	
+	affinity: {}
+36676b2dd0aa56d1c6c518c8245ca692|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|1|1|V|yaml
+	# Default values for webiq-server-chart.
+	# This is a YAML-formatted file.
+	# Declare variables to be passed into your templates.
+	
+c311bc39d82298ad789e6d67f3765183|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|91|1|V|terraform
+	  repository          = "eclipse-mosquitto"
+620904782bc184aa90db49f18ddd8d02|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|90|1|V|terraform
+	  replicaCount        = 1
+	  repository          = "eclipse-mosquitto"
+	  tag                 = "2.0.14-openssl"
+a3cd53556c59c6d5b3345d8a6546459b|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|4|15|v|yaml
+	logiccloud.azurecr.io/webiq/webiq-server
+cd4549e2ea3a5afff5081ac379b845a1|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|118|26|v|terraform
+	2.0.14-openssl
+470de068ce7d6eb2ff47f2674bfec3a9|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|13|28|V|terraform
+	      allow_anonymous     = var.allow_anonymous
+	      require_certificate = var.require_certificate
+8365cdcbfd52adbbf71f8e4397909a2d|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|13|1|V|terraform
+	      mqtt = {
+	        name = var.mqttName
+	        port = var.mqttPort
+	      }
+	      mqtts = {
+	        name = var.mqttsName
+	        port = var.mqttsPort
+	      }
+597771ec9fb5358da0386bbd38b232a0|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|7|8|v|yaml
+	"latest"
+f7dc1bdd93681fa436640b784be700b2|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|51|13|v|yaml
+	${hostName}
+753b32f27fd2e3ec5bccda624e135f56|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|60|1|V|yaml
+	resources: {}
+	  # We usually recommend not to specify default resources and to leave this as a conscious
+	  # choice for the user. This also increases chances charts run on environments with little
+	  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+	  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+	  # limits:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	  # requests:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	
+	autoscaling:
+	  enabled: false
+	  minReplicas: 1
+	  maxReplicas: 100
+	  targetCPUUtilizationPercentage: 80
+	  # targetMemoryUtilizationPercentage: 80
+	
+	nodeSelector: {}
+	
+	tolerations: []
+	
+	affinity: {}
+28d6ef7ab933ad6165c84badfe94d551|file:///home/alex/sources/tfmodule-webiqsrv/variables.tf|4|1|V|terraform
+	variable "require_certificate" { type = bool }
+64cfe2be94407be25afb0ae8621d75ab|file:///home/alex/sources/tfmodule-webiqsrv/variables.tf|4|1|V|terraform
+	variable "mqttPort" { type = number }
+	variable "mqttsName" { type = string }
+	variable "mqttsPort" { type = number }
+7656e937670ebf0f8e54dd09c0bce873|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|2|14|v|terraform
+	webiq-server
+ed8de798a224d07b55cc91c60751b738|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|1|38|v|terraform
+	mqtt-mosquitto-broker
+6d05478b9305e2bdf806c1090295d4e9|file:///home/alex/sources/tfmodule-webiqsrv/main.tf|13|1|V|terraform
+	      allow_anonymous     = var.allow_anonymous
+	      require_certificate = var.require_certificate
+	      mqtt = {
+	        name = var.mqttName
+	        port = var.mqttPort
+	      }
+	      mqtts = {
+	        name = var.mqttsName
+	        port = var.mqttsPort
+	      }
+6f70af9c26b0da1a9a9a79c48eeaf587|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|1|1|V|yaml
+	jeplicaCount: ${replicaCount}
+	
+	image:
+	  repository: ${repository}
+	  tag: ${tag}
+	  pullPolicy: IfNotPresent
+	
+	imagePullSecrets: []
+	nameOverride: ""
+	fullnameOverride: ""
+	
+	container:
+	  ports:
+	    mqtt:
+	      name: ${mqtt.name}
+	      port: ${mqtt.port}
+	
+	service:
+	  type: ClusterIP
+	  ports:
+	    mqtt:
+	      name: ${mqtt.name}
+	      port: ${mqtt.port}
+	
+	resources: {}
+	  # We usually recommend not to specify default resources and to leave this as a conscious
+	  # choice for the user. This also increases chances charts run on environments with little
+	  # resources, such as Minikube. If you do want to specify resources, uncomment the following
+	  # lines, adjust them as necessary, and remove the curly braces after 'resources:'.
+	  # limits:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	  # requests:
+	  #   cpu: 100m
+	  #   memory: 128Mi
+	
+	nodeSelector: {}
+	
+	tolerations: []
+	
+	affinity: {}
+	
+	config: |-
+	  persistence true
+	  persistence_location /mosquitto/data/
+	  log_dest stdout
+	  listener ${mqtt.port}
+	  listener ${mqtts.port}
+	  protocol mqtt
+	  cafile /mosquitto/config/certs/ca.crt
+	  certfile /mosquitto/config/certs/server.crt
+	  keyfile /mosquitto/config/certs/server.key
+	  require_certificate ${require_certificate}
+	  allow_anonymous ${allow_anonymous}
+	
+	certs:
+	  ca:
+	    crt: |-
+	      -----BEGIN CERTIFICATE-----
+	      MIIDszCCApugAwIBAgIUJ0vEtAdpkdEYWEPvFjQru79gfFswDQYJKoZIhvcNAQEL
+	      BQAwaTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	      bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEWMBQGA1UEAwwN
+	      bG9naWNjbG91ZC5pbzAeFw0yMjA1MDMwOTUxMjZaFw0yMzA1MDMwOTUxMjZaMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqjCKmWBTk
+	      WSmSLjBGKME/8GOag0n/92ZNXG41HHlOHHy5wnBT43VD/RVMVDg6jYCuykoROhT1
+	      HYWKAT1dHSGF8YCGgDYVmzgBETWbUSVBLW+f94euOmMCLkAlWjeEP9PJ2LPsHEtb
+	      5ctmlbACpn3q5XYkcJAxkolFChZFw2t2cOrRaoO0+oswBdMLTAfXltgjaRxjvKJ6
+	      Ci/zQk0OgTeJYq2xYYJ5ohoDdXmtwRqRUm7RuMqMR6zdCmAAqyAchZapIUTZA59J
+	      oUsltSybFBnUbWVHcNSdmK4QdqAdYMBdMG7w9ve1mrCnzwMpGAYqiGOWvHRdcTFs
+	      1HKkYW7k9OBBAgMBAAGjUzBRMB0GA1UdDgQWBBTJW498dJLrA9nZA5WLgLziK8S9
+	      EzAfBgNVHSMEGDAWgBTJW498dJLrA9nZA5WLgLziK8S9EzAPBgNVHRMBAf8EBTAD
+	      AQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBUYzzby8XFUOMBAjoaYYBAqq81BmCdrk42
+	      /Je6OzfwPC7d67TAT9Db4QhJqJrygZKx/olbwRj0Dn65sDWNdaCpjjUUg0Vv5bWK
+	      BvqnzC30xn41bAdUVAAjKCDNlS233qgTg3DrNL133uTHuADvAKBNh6b4pNxxwjwp
+	      f8SZKfQdqaJ1Eo0TmCTrzYRLvdDZq7fYjLf44pKkJX73K3Vmy8dS7/KsQuek3aDU
+	      3727E+Mts/7w1g1xF6cKSNmf3FXnho0ShQa41t0IBFMeeIvcsHy+kQM3/2/FwDjC
+	      5nVdjmJ1AHu6pgmrepNYtRi7Q/oWI78xUytiocx8NQnX0uH3znmB
+	      -----END CERTIFICATE-----
+	  server:
+	    crt: |-
+	      -----BEGIN CERTIFICATE-----
+	      MIIDXTCCAkUCFFY9Dg/A2u+sfsWmEa7W4A+3tz3qMA0GCSqGSIb3DQEBCwUAMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wHhcNMjIwNTAzMDk1MTI2WhcNMjMwNTAzMDk1MTI2WjBtMQswCQYD
+	      VQQGEwJERTEPMA0GA1UECAwGQmVybGluMQ8wDQYDVQQHDAZCZXJsaW4xEzARBgNV
+	      BAoMCmxvZ2ljY2xvdWQxDzANBgNVBAsMBlNlcnZlcjEWMBQGA1UEAwwNbG9naWNj
+	      bG91ZC5pbzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKryWEbaiGT4
+	      JZT26xIC3ehzVWVfR08qIeAa47DOFz8cqkL2lL9XZhhunPkLPvLQqnwdacdJXLC9
+	      gUbMs6eLlR0E6oULJb2jvfnQU1elDk+fdTkLJcuk2eVwwS+xSAqbWQsqfx0/pXY7
+	      3Ht67ge5yFFAtdw63cK8WzQqKhJ/KWg5xTGqExwbeWImTaa7/h/TQ3LhseZIWtpj
+	      VMVB+p/HJK7pOjQAYkIzSY8wYl/FYBdws53lexDjyiRTqhPzjEdc7tX2BdLD3xzk
+	      uz9ZUxO+LzZqVQp/AItY4fEakADfv2xMjALNcT6MdnH5m7IWNBnNL7KJ5AfZwRaB
+	      VG6iK+Y+iG0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAUqziMJpZt6j9X8xdtQCS
+	      z8TPaw0yaieO/yH1x9zbkh5VQ8mX2zo+ZHim8ilqx+19Abwv16uM5qcByTxvPYmT
+	      qkrzvCq87O0Tf6v79TG8JWHXfrz0nNLp2gn6Xe7FNdEl3HVKqOLmNPYcJMI6ZASb
+	      2OybmkdGlLXy5BBICKMnUN/ySCbb3tRbmJjyk9g2KzzoFlkj+myLQzhOipb0ZYXa
+	      jCPL5Cg6h/jyFb5gVIbbEbg0T6dI6wygkps3pvXIvx+e+45BRbaypqnp4u2RmiDO
+	      xe59lcwls7TW7JF4Jv4Akv/B3zd+wEYB3PLyoOHHBXR8TkXwJ/84h+JiABnn3UtB
+	      cQ==
+	      -----END CERTIFICATE-----
+	    key: |-
+	      -----BEGIN PRIVATE KEY-----
+	      MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCq8lhG2ohk+CWU
+	      9usSAt3oc1VlX0dPKiHgGuOwzhc/HKpC9pS/V2YYbpz5Cz7y0Kp8HWnHSVywvYFG
+	      zLOni5UdBOqFCyW9o7350FNXpQ5Pn3U5CyXLpNnlcMEvsUgKm1kLKn8dP6V2O9x7
+	      eu4HuchRQLXcOt3CvFs0KioSfyloOcUxqhMcG3liJk2mu/4f00Ny4bHmSFraY1TF
+	      QfqfxySu6To0AGJCM0mPMGJfxWAXcLOd5XsQ48okU6oT84xHXO7V9gXSw98c5Ls/
+	      WVMTvi82alUKfwCLWOHxGpAA379sTIwCzXE+jHZx+ZuyFjQZzS+yieQH2cEWgVRu
+	      oivmPohtAgMBAAECggEBAIKCNqcRXCRJ1tddk6XSjnxS4RVdomFr9yTTIpXvIYxL
+	      ZClve6yBGy7389umnE5gxGexRPqipaNBapsU2OvHAvZ+tFUSZ6PaiMVaKOa22rAr
+	      OyFrw1Uv7DLg3Hx+ylNeuqJttVItLzOPDAsxlNxNGAQAdVdHkdqEVtUCg9BPSNuK
+	      T/XK8OOgzkSDLOgnP3kC4+KoQKuqNFFB/ksdEULm1161pVl9lD6Tn5CPK5qmUE3s
+	      a0cuUR4ycN8BsYeiSyzhxaYklSJIw0oSXd+CRVmnxS9AcPaetyy5xNwloDNGkoqT
+	      aH391hNiXLI2tuZoFb3fbVkTI3iqdgdH88gMizgqpIECgYEA0sqJX8oa8rKryrty
+	      oYTvcH/dVK8hukLohmfcDQhZ+9i94wfhcJlnkGEBGVREjkT4a+wTMdmWvSezplMa
+	      74o0EpmKPuksj4NMEhBUtPpnBEFAPmNO9kDS/LfQ4D17LwfVr0j9rar0R4XJVJO7
+	      Fayzen2nYRdOpbKGk8M1JnkePj0CgYEAz5wml1m6xJvtEsIWadCHmWlE9WGVNKVn
+	      wSX4ExCoHvQq2Vnt8HYXfPKih20tkaZHpYDBja7Dhf7P4dBRxG/lMluUVZEd4Ktn
+	      UUMS9bwxkTtQVqfDKWRlxqh6QtPyKNlBF6P4+3kw4/usl+R5Ch0iKhC6nsuCpqSh
+	      x/c9pV11xfECgYAvFZyv7+YrFiv3gf1uBNKzL2ySEPiYsX9dHm/x3U60ScrInqcF
+	      zs5qWrCzJraVjORsvvPeq7rXD7o6Sc/3d8h/6xoNSWpxuCNS2aECN/iw455lESu/
+	      J+W5G5olrLYKYFaj68r2cvxTyZeaM9GTWttQXib4MguYSZN0CCOkL2PJBQKBgDfa
+	      G2u2QQ+pnyLfwiXfastzzZByGzDZmssUiuOeJIyHRYvJrMB3FKSRpfXnAk5fvICi
+	      3e9e580Bmy113LmLHM7qYkKO0snhct8iu1QOuAsJOPjHEzLshpDmPFYELO6eW+uf
+	      Oll05hk/WNRYK9PzuIA2le4oc9KfEcL5GcWGGiwRAoGBALIRI5FcAb3vaqN63oHH
+	      OGLfWReDL4iwUA5aYSKFmKLjObFCdUa6/Pnz4Ssmn1j9phXUoMThRnRCSJGjaaM+
+	      2KtH6M2jHHGgKmWOZ7d10mk11MJjFRdmP0Z4tFMoxEtobd9VPIgrDCzzy0GxaBlO
+	      ROVIQ4NlgbSZHVzeuCyHQYCo
+	      -----END PRIVATE KEY-----
+	
+	
+	## Persist data to a persistent volume
+	persistence:
+	  enabled: true
+	  ## database data Persistent Volume Storage Class
+	  ## If defined, storageClassName: <storageClass>
+	  ## If set to "-", storageClassName: "", which disables dynamic provisioning
+	  ## If undefined (the default) or set to null, no storageClassName spec is
+	  ##   set, choosing the default provisioner.  (gp2 on AWS, standard on
+	  ##   GKE, AWS & OpenStack)
+	  ##
+	  ##
+	  # storageClass: "-"
+	  accessMode: ReadWriteOnce
+	  size: 8Gi
+	  annotations:
+	    pv.kubernetes.io/provisioned-by: disk.csi.azure.com
+	  storageClass: default
+	
+	## Security context
+	securityContext:
+	  enabled: false
+	  runAsUser: 999
+	  fsGroup: 999
+018531a6fe3834353217dbf6a6634dcf|file:///home/alex/sources/tfmodule-webiqsrv/variables.tf|4|11|v|terraform
+	hostName
+b326b5062b2f0e69046810717534cb09|file:///home/alex/sources/tfmodule-webiqsrv/values.yaml|16|11|v|yaml
+	true
+694a00c692af0b6fcf02daf130149fab|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|114|1|V|terraform
+	module "webiq-server" {
+	  source       = "../tfmodule-webiqsrv"
+	  replicaCount = 1
+	  repository   = "logiccloud.azurecr.io/webiq/webiq-server"
+	  tag          = "latest"
+	  host_name    = "webiq.demo.logiccloud.io"
+	}
+1947ddea66da62c4d81cb13f5c8fc3df|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|3|1|V|dockerfile
+	# Define command line arguments
+	ARG WEBIQ_SERVER_USER_NAME
+	ARG WEBIQ_SERVER_PASSWORD
+	
+9a6dd283c3de653fbca500f9721f634f|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|5|12|v|dockerfile
+	apps
+f6ce277d796d28f6cec20905f34957b0|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|7|5|v|dockerfile
+	server/opt
+e34824e0d575819cc42a09bde2fb82f6|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|8|16|V|dockerfile
+	#ADD app /apps/app
+8b003d4a7a68f9adac3f660196b7e504|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|9|1|V|dockerfile
+	# Fix permissions (esp. when copied from Windows these are lost)
+	RUN chmod 550	/opt/webiq \
+					/opt/webiq/*.so* && \
+		chmod 440	/opt/webiq/resources/*def*.sqlite && \
+		chmod 660	/opt/webiq/resources/connect.sqlite && \
+		chmod 775	/opt/webiq/connect /opt/webiq/connectcfg;
+	
+	#RUN	chmod 555	/apps && \
+		#find /apps -type d -exec chmod 550 {} \; && \
+		#find /apps -type f -exec chmod 440 {} \; && \
+		#chmod 770	/apps/app/.db && \
+		#chmod 660	/apps/app/.db/*.sqlite;
+	
+	RUN chmod 777 /opt/start-webiq-server.sh
+2df6fc62d64bcfe2e96a2019bd3ab095|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|9|1|V|dockerfile
+	# Ensure a database file exists before adding the user - otherwise this will fail
+	RUN mkdir -p /root/.webiq
+	RUN cp -n /opt/webiq/resources/connectdef.sqlite /root/.webiq/connect.sqlite
+	
+2bffff253944a3e04893097604c2fe81|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|9|10|v|dockerfile
+	opt/webiq
+35a28e916248b91b000c92560f44c5ac|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|10|5|v|dockerfile
+	odejs /opcua/server.js
+03ecb1d4d2a3f3f011ab418587dfa21e|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|18|16|v|dockerfile
+	opt/start-webiq-server.sh
+7d8978484cc25faf7b76a0ca61a6e4c7|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|12|1|V|dockerfile
+	# Create initial user using data from .env file - otherwise the server would not start
+	#RUN /opt/webiq/connectcfg user add ${WEBIQ_SERVER_USER_NAME} ${WEBIQ_SERVER_PASSWORD}
+	RUN /opt/webiq/connectcfg user add webiqlcpublisher l0g1CCl0uD
+	
+479d554912a62516a85a6c0c3158f53c|file:///home/alex/sources/src_webiq/opcua-demo-server/Dockerfile|15|18|V|dockerfile
+	#ENTRYPOINT ["tail", "-f", "/dev/null"]
+421aa90e079fa326b6494f812ad13e79|file:///home/alex/sources/src_webiq/opcua-demo-server/opcua/profiles/default/config.json|12|26|v|json
+	localhost
+618a6c1961e47f42881529c74ef3f032|file:///home/alex/sources/stackit-cloud-ops/variables.tf|3|40|v|terraform
+	stackit1
+fe01ce2a7fbac8fafaed7c982a04e229|file:///home/alex/sources/stackit-cloud-ops/variables.tf|3|40|v|terraform
+	demo
+fae5a07102e33c8354598652832f0ab5|file:///home/alex/sources/aks-demo-ops/cluster_modules.tf|87|1|V|terraform
+	
+	module "mosquitto-mqtt" {
+	  source              = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-mosquitto"
+	  replicaCount        = 1
+	  repository          = "eclipse-mosquitto"
+	  tag                 = "2.0.14-openssl"
+	  allow_anonymous     = true
+	  require_certificate = true
+	  mqttName            = "mqtt"
+	  mqttPort            = 1884
+	  mqttsName           = "mqtts"
+	  mqttsPort           = 1883
+	}
+	
+	module "apollo-stack" {
+	  source                = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-apollo"
+	  keyvault_id           = local.keyvault_id
+	  host_name             = "apollo.demo.logiccloud.io"
+	  iokey_base64_kvsecret = "demo-logiccloud-io-pfx-base64"
+	  iokey_pass_kvsecret   = "demo-logiccloud-io-20220518-pfx-password"
+	  psql_host             = "apollo-postgresql"
+	  psql_port             = "5432"
+	  mqtt_host             = "mqtt-mosquitto-eclipse-mosquitto.default.svc"
+	  mqtt_port             = "1884"
+	  iokey_port            = "8883"
+	}
+611e78ab42a346397ed5ffa4e921fe67|file:///home/alex/sources/stackit-cloud-ops/modules.tf|56|1|V|terraform
+	  prefix          = local.prefix
+941de982abe65274d9508ac23ec3d6bd|file:///home/alex/sources/tfmodule-mosquitto/main.tf|18|18|v|terraform
+	${var.prefix}
+0f2b0512f5a11d75e61b43c0e96c509b|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|10|1|V|terraform
+	variable "prefix" { type = string }
+851f5ac9941d720844d143ed9cfcf60a|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|11|11|v|terraform
+	prefix
+c21f969b5f03d33d43e04f8f136e7682|file:///home/alex/sources/tfmodule-mosquitto/values.yaml|155|17|v|yaml
+	default
+f324a96045b7ea271795200eabf8dd26|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|11|11|v|terraform
+	persistence_storage_class
+3c3f9cf4901cb258f9f26d34c0b25e86|file:///home/alex/sources/tfmodule-mosquitto/values.yaml|154|38|v|yaml
+	disk.csi.azure.com
+5a705d184c05b04bec118e8b78f12303|file:///home/alex/sources/stackit-cloud-ops/modules.tf|97|3|v|terraform
+	persistence_provisioner 
+ed1f1d1c35d8c7621dc11fd4cbcd7d2d|file:///home/alex/sources/tfmodule-mosquitto/main.tf|40|31|v|terraform
+	persistence_provisioner
+0870b541af698b3e0a1efcb624c918d2|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|11|1|V|terraform
+	variable "persistence_storage_class" { type = string }
+ddbdf51b128f7b5889ab65e3268c61ae|file:///home/alex/sources/tfmodule-mosquitto/variables.tf|12|23|v|terraform
+	storage_class
+2577e64f2cfdf0ffd2400879bcb8d7fc|file:///home/alex/sources/stackit-cloud-ops/modules.tf|97|63|v|terraform
+	cinder.csi.openstack.org
+c00f0c4675b91fb8b918e4079a0b1bac|file:///home/alex/sources/stackit-cloud-ops/modules.tf|98|54|v|terraform
+	standard
+983de9e1ec0ce8daf2dbe691642d5c64|file:///home/alex/sources/aks-demo-ops/cluster_modules.tf|89|1|V|terraform
+	  source              = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-mosquitto"
+	  replicaCount        = 1
+	  repository          = "eclipse-mosquitto"
+	  tag                 = "2.0.14-openssl"
+	  allow_anonymous     = true
+	  require_certificate = true
+	  mqttName            = "mqtt"
+	  mqttPort            = 1884
+	  mqttsName           = "mqtts"
+	  mqttsPort           = 1883
+6d57dc099683694e1728a0f4db11620a|file:///home/alex/sources/stackit-cloud-ops/modules.tf|90|1|V|terraform
+	  source                    = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-mosquitto"
+	  prefix                    = local.prefix
+	  replicaCount              = 1
+	  repository                = "eclipse-mosquitto"
+	  tag                       = "2.0.14-openssl"
+	  allow_anonymous           = true
+	  require_certificate       = true
+	  persistence_provisioner   = "cinder.csi.openstack.org" ## disk.csi.azure.com for AKS, cinder.csi.openstack.org for Stackit
+	  persistence_storage_class = "premium-perf1-stackit"    ## default for AKS, stadnard for Stackit
+	  mqttName                  = "mqtt"
+	  mqttPort                  = 1884
+	  mqttsName                 = "mqtts"
+	  mqttsPort                 = 1883
+ed89e0e2e202bd5127d2b40582d3fb10|file:///home/alex/sources/aks-demo-ops/cluster_modules.tf|97|32|v|terraform
+	premium-perf1-stackit
+46d94279452e7453d99c87ca6ced461b|file:///home/alex/sources/aks-demo-ops/cluster_modules.tf|97|99|v|terraform
+	stadnard 
+a13a3b6bd47b15e4fe495f03f9b2e7a3|file:///home/alex/sources/aks-demo-ops/cluster_modules.tf|89|1|V|terraform
+	  source                    = "git::git@ssh.dev.azure.com:v3/logiccloud/logiccloud/tfmodule-mosquitto"
+	  prefix                    = local.prefix
+	  replicaCount              = 1
+	  repository                = "eclipse-mosquitto"
+	  tag                       = "2.0.14-openssl"
+	  allow_anonymous           = true
+	  require_certificate       = true
+	  persistence_provisioner   = "disk.csi.azure.com" ## disk.csi.azure.com for AKS, cinder.csi.openstack.org for Stackit
+	  persistence_storage_class = "default"            ## default for AKS, premium-perf1-stackit for Stackit
+	  mqttName                  = "mqtt"
+	  mqttPort                  = 1884
+	  mqttsName                 = "mqtts"
+	  mqttsPort                 = 1883
+495be5c1770f69ce18c7ff99f6906b95|file:///home/alex/sources/aks-staging-ops/cluster_modules.tf|117|3|v|terraform
+	dule "webiq-server" {
+	  source       = "../tfmodule-webiqsrv"
+	  replicaCount = 1
+	  repository   = "logiccloud.azurecr.io/webiq/webiq-server"
+	  tag          = "latest"
+	  host_name    = "webiq.demo.logiccloud.io"
+	}
+eeb6b27d6e3816f5b120f2098d86c032|file:///home/alex/sources/stackit-cloud-ops/modules.tf|91|1|V|terraform
+	  prefix                    = local.prefix
+d64b8999c36cb29cb9e61dd54367c837|file:///home/alex/sources/tfmodule-apollo/variables.tf|13|1|V|terraform
+	variable "iokey_port" { type = string }
+350e7392ba0634b095583129f93fb131|file:///home/alex/sources/tfmodule-apollo/variables.tf|14|11|v|terraform
+	iokey_port
+23f9fb1a6bd6c1e6d0c45c8ea8016a8b|file:///home/alex/sources/tfmodule-apollo/values.yaml|10|9|v|yaml
+	${ingressHost}
+692f4a35f3bb87e42df2d358896f220e|file:///home/alex/sources/tfmodule-apollo/main.tf|21|25|V|terraform
+	      prefix = var.prefix
+3095e4201ee530c0fc83053752094513|file:///home/alex/sources/stackit-cloud-ops/modules.tf|110|28|v|terraform
+	${local.cluster_name}
+68934a3e9455fa72420237eb05902327|file:///home/alex/sources/stackit-cloud-ops/variables.tf|4|39|v|terraform
+	false
+e6b558547dc45d538e0971744222a88f|file:///home/alex/sources/stackit-cloud-ops/modules.tf|109|4|V|terraform
+	  prefix                    = local.cluster_name
+1fb7abf3549502db60cc46fd612953a2|file:///home/alex/sources/tfmodule-monitoring/kubernetes-stack.yaml|138|1|V|yaml
+	          receiver: devops_email
+83d1d07b2e3160f5b727b1f305955cce|file:///home/alex/sources/tfmodule-monitoring/kubernetes-stack.yaml|139|21|v|yaml
+	devops_email
+c1512aee6eb64bc57a3f46da0b2f48f1|file:///home/alex/sources/stackit-cloud-ops/modules.tf|109|28|v|terraform
+	demo-
+4330a4c296a33f3a98b51178a3057668|file:///home/alex/sources/stackit-cloud-ops/modules.tf|110|28|v|terraform
+	demo-logiccloud-io-20220518-pfx-password
+34e8ad7a6f8d06de4efbad48e3a7a2e6|file:///home/alex/sources/eclipse-mosquitto-chart-test/values.yaml|67|1|V|yaml
+	certs:
+	  ca:
+	    crt: |-
+	      -----BEGIN CERTIFICATE-----
+	      MIIDszCCApugAwIBAgIUJ0vEtAdpkdEYWEPvFjQru79gfFswDQYJKoZIhvcNAQEL
+	      BQAwaTELMAkGA1UEBhMCREUxDzANBgNVBAgMBkJlcmxpbjEPMA0GA1UEBwwGQmVy
+	      bGluMRMwEQYDVQQKDApsb2dpY2Nsb3VkMQswCQYDVQQLDAJDQTEWMBQGA1UEAwwN
+	      bG9naWNjbG91ZC5pbzAeFw0yMjA1MDMwOTUxMjZaFw0yMzA1MDMwOTUxMjZaMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCqjCKmWBTk
+	      WSmSLjBGKME/8GOag0n/92ZNXG41HHlOHHy5wnBT43VD/RVMVDg6jYCuykoROhT1
+	      HYWKAT1dHSGF8YCGgDYVmzgBETWbUSVBLW+f94euOmMCLkAlWjeEP9PJ2LPsHEtb
+	      5ctmlbACpn3q5XYkcJAxkolFChZFw2t2cOrRaoO0+oswBdMLTAfXltgjaRxjvKJ6
+	      Ci/zQk0OgTeJYq2xYYJ5ohoDdXmtwRqRUm7RuMqMR6zdCmAAqyAchZapIUTZA59J
+	      oUsltSybFBnUbWVHcNSdmK4QdqAdYMBdMG7w9ve1mrCnzwMpGAYqiGOWvHRdcTFs
+	      1HKkYW7k9OBBAgMBAAGjUzBRMB0GA1UdDgQWBBTJW498dJLrA9nZA5WLgLziK8S9
+	      EzAfBgNVHSMEGDAWgBTJW498dJLrA9nZA5WLgLziK8S9EzAPBgNVHRMBAf8EBTAD
+	      AQH/MA0GCSqGSIb3DQEBCwUAA4IBAQBUYzzby8XFUOMBAjoaYYBAqq81BmCdrk42
+	      /Je6OzfwPC7d67TAT9Db4QhJqJrygZKx/olbwRj0Dn65sDWNdaCpjjUUg0Vv5bWK
+	      BvqnzC30xn41bAdUVAAjKCDNlS233qgTg3DrNL133uTHuADvAKBNh6b4pNxxwjwp
+	      f8SZKfQdqaJ1Eo0TmCTrzYRLvdDZq7fYjLf44pKkJX73K3Vmy8dS7/KsQuek3aDU
+	      3727E+Mts/7w1g1xF6cKSNmf3FXnho0ShQa41t0IBFMeeIvcsHy+kQM3/2/FwDjC
+	      5nVdjmJ1AHu6pgmrepNYtRi7Q/oWI78xUytiocx8NQnX0uH3znmB
+	      -----END CERTIFICATE-----
+	  server:
+	    crt: |-
+	      -----BEGIN CERTIFICATE-----
+	      MIIDXTCCAkUCFFY9Dg/A2u+sfsWmEa7W4A+3tz3qMA0GCSqGSIb3DQEBCwUAMGkx
+	      CzAJBgNVBAYTAkRFMQ8wDQYDVQQIDAZCZXJsaW4xDzANBgNVBAcMBkJlcmxpbjET
+	      MBEGA1UECgwKbG9naWNjbG91ZDELMAkGA1UECwwCQ0ExFjAUBgNVBAMMDWxvZ2lj
+	      Y2xvdWQuaW8wHhcNMjIwNTAzMDk1MTI2WhcNMjMwNTAzMDk1MTI2WjBtMQswCQYD
+	      VQQGEwJERTEPMA0GA1UECAwGQmVybGluMQ8wDQYDVQQHDAZCZXJsaW4xEzARBgNV
+	      BAoMCmxvZ2ljY2xvdWQxDzANBgNVBAsMBlNlcnZlcjEWMBQGA1UEAwwNbG9naWNj
+	      bG91ZC5pbzCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBAKryWEbaiGT4
+	      JZT26xIC3ehzVWVfR08qIeAa47DOFz8cqkL2lL9XZhhunPkLPvLQqnwdacdJXLC9
+	      gUbMs6eLlR0E6oULJb2jvfnQU1elDk+fdTkLJcuk2eVwwS+xSAqbWQsqfx0/pXY7
+	      3Ht67ge5yFFAtdw63cK8WzQqKhJ/KWg5xTGqExwbeWImTaa7/h/TQ3LhseZIWtpj
+	      VMVB+p/HJK7pOjQAYkIzSY8wYl/FYBdws53lexDjyiRTqhPzjEdc7tX2BdLD3xzk
+	      uz9ZUxO+LzZqVQp/AItY4fEakADfv2xMjALNcT6MdnH5m7IWNBnNL7KJ5AfZwRaB
+	      VG6iK+Y+iG0CAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAUqziMJpZt6j9X8xdtQCS
+	      z8TPaw0yaieO/yH1x9zbkh5VQ8mX2zo+ZHim8ilqx+19Abwv16uM5qcByTxvPYmT
+	      qkrzvCq87O0Tf6v79TG8JWHXfrz0nNLp2gn6Xe7FNdEl3HVKqOLmNPYcJMI6ZASb
+	      2OybmkdGlLXy5BBICKMnUN/ySCbb3tRbmJjyk9g2KzzoFlkj+myLQzhOipb0ZYXa
+	      jCPL5Cg6h/jyFb5gVIbbEbg0T6dI6wygkps3pvXIvx+e+45BRbaypqnp4u2RmiDO
+	      xe59lcwls7TW7JF4Jv4Akv/B3zd+wEYB3PLyoOHHBXR8TkXwJ/84h+JiABnn3UtB
+	      cQ==
+	      -----END CERTIFICATE-----
+	    key: |-
+	      -----BEGIN PRIVATE KEY-----
+	      MIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCq8lhG2ohk+CWU
+	      9usSAt3oc1VlX0dPKiHgGuOwzhc/HKpC9pS/V2YYbpz5Cz7y0Kp8HWnHSVywvYFG
+	      zLOni5UdBOqFCyW9o7350FNXpQ5Pn3U5CyXLpNnlcMEvsUgKm1kLKn8dP6V2O9x7
+	      eu4HuchRQLXcOt3CvFs0KioSfyloOcUxqhMcG3liJk2mu/4f00Ny4bHmSFraY1TF
+	      QfqfxySu6To0AGJCM0mPMGJfxWAXcLOd5XsQ48okU6oT84xHXO7V9gXSw98c5Ls/
+	      WVMTvi82alUKfwCLWOHxGpAA379sTIwCzXE+jHZx+ZuyFjQZzS+yieQH2cEWgVRu
+	      oivmPohtAgMBAAECggEBAIKCNqcRXCRJ1tddk6XSjnxS4RVdomFr9yTTIpXvIYxL
+	      ZClve6yBGy7389umnE5gxGexRPqipaNBapsU2OvHAvZ+tFUSZ6PaiMVaKOa22rAr
+	      OyFrw1Uv7DLg3Hx+ylNeuqJttVItLzOPDAsxlNxNGAQAdVdHkdqEVtUCg9BPSNuK
+	      T/XK8OOgzkSDLOgnP3kC4+KoQKuqNFFB/ksdEULm1161pVl9lD6Tn5CPK5qmUE3s
+	      a0cuUR4ycN8BsYeiSyzhxaYklSJIw0oSXd+CRVmnxS9AcPaetyy5xNwloDNGkoqT
+	      aH391hNiXLI2tuZoFb3fbVkTI3iqdgdH88gMizgqpIECgYEA0sqJX8oa8rKryrty
+	      oYTvcH/dVK8hukLohmfcDQhZ+9i94wfhcJlnkGEBGVREjkT4a+wTMdmWvSezplMa
+	      74o0EpmKPuksj4NMEhBUtPpnBEFAPmNO9kDS/LfQ4D17LwfVr0j9rar0R4XJVJO7
+	      Fayzen2nYRdOpbKGk8M1JnkePj0CgYEAz5wml1m6xJvtEsIWadCHmWlE9WGVNKVn
+	      wSX4ExCoHvQq2Vnt8HYXfPKih20tkaZHpYDBja7Dhf7P4dBRxG/lMluUVZEd4Ktn
+	      UUMS9bwxkTtQVqfDKWRlxqh6QtPyKNlBF6P4+3kw4/usl+R5Ch0iKhC6nsuCpqSh
+	      x/c9pV11xfECgYAvFZyv7+YrFiv3gf1uBNKzL2ySEPiYsX9dHm/x3U60ScrInqcF
+	      zs5qWrCzJraVjORsvvPeq7rXD7o6Sc/3d8h/6xoNSWpxuCNS2aECN/iw455lESu/
+	      J+W5G5olrLYKYFaj68r2cvxTyZeaM9GTWttQXib4MguYSZN0CCOkL2PJBQKBgDfa
+	      G2u2QQ+pnyLfwiXfastzzZByGzDZmssUiuOeJIyHRYvJrMB3FKSRpfXnAk5fvICi
+	      3e9e580Bmy113LmLHM7qYkKO0snhct8iu1QOuAsJOPjHEzLshpDmPFYELO6eW+uf
+	      Oll05hk/WNRYK9PzuIA2le4oc9KfEcL5GcWGGiwRAoGBALIRI5FcAb3vaqN63oHH
+	      OGLfWReDL4iwUA5aYSKFmKLjObFCdUa6/Pnz4Ssmn1j9phXUoMThRnRCSJGjaaM+
+	      2KtH6M2jHHGgKmWOZ7d10mk11MJjFRdmP0Z4tFMoxEtobd9VPIgrDCzzy0GxaBlO
+	      ROVIQ4NlgbSZHVzeuCyHQYCo
+	      -----END PRIVATE KEY-----
+	
+	
+2a8fd1821d2bb65b7c61f77c6294ccae|file:///home/alex/.config/qtile/scripts/autostart.sh|62|1|V|sh
+	## Run xsecurelock
+	xset s 300 5
+	xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecureloc &
+	
+8b84dba1c7b0a92f8a25ec71917eb986|file:///home/alex/.config/qtile/scripts/autostart.sh|44|1|v|sh
+	xset 
+e0d9e5e693a4d6fe3ce0a5b93aac651d|file:///home/alex/.config/qtile/scripts/autostart.sh|44|1|v|sh
+	xset s 300 5
+b1f9ed3446eccff017ae4cc30edbe962|file:///home/alex/.config/qtile/scripts/autostart.sh|45|2|v|sh
+	xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecureloc &
+c1e9f0651b4e8daf12721ea30018acb0|file:///home/alex/.config/qtile/scripts/autostart.sh|43|1|V|sh
+	## Run xsecurelock
+	#xset s 300 5
+	#xss-lock -n /usr/lib/xsecurelock/dimmer -l -- xsecurelock &
+	
+c4a2d21bcdc8203d1834e3abc5237c3c|file:///home/alex/sources/tfmodule-mosquitto/main.tf|27|1|V|terraform
+	  chart   = "../eclipse-mosquitto-chart"
+dcc79ee7c85df2ed15e2c3227288aaaa|file:///home/alex/sources/tfmodule-mosquitto/main.tf|28|14|v|terraform
+	../eclipse-mosquitto-chart
+03a4be52413c22933b44aa82346649c8|file:///home/alex/sources/tfmodule-mosquitto/main.tf|28|14|v|terraform
+	eclipse-mosquitto-chart
+a81c5c1d01b2d585a7caadf7cf79b35c|file:///home/alex/sources/tfmodule-mosquitto/main.tf|27|38|V|terraform
+	  #chart   = "../eclipse-mosquitto-chart"
+68126c3d03aed411a3469ffcd032ebb5|file:///etc/auto-cpufreq.conf|26|12|v|conf
+	powersave

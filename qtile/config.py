@@ -62,48 +62,48 @@ keys = [
 
 # RESIZE UP, DOWN, LEFT, RIGHT
     Key([mod, "control"], "l",
-        lazy.layout.grow_right(),
+        # lazy.layout.grow_right(),
         lazy.layout.grow(),
-        lazy.layout.increase_ratio(),
+        # lazy.layout.increase_ratio(),
         lazy.layout.delete(),
         ),
     Key([mod, "control"], "Right",
-        lazy.layout.grow_right(),
+        # lazy.layout.grow_right(),
         lazy.layout.grow(),
-        lazy.layout.increase_ratio(),
+        # lazy.layout.increase_ratio(),
         lazy.layout.delete(),
         ),
     Key([mod, "control"], "h",
-        lazy.layout.grow_left(),
+        # lazy.layout.grow_left(),
         lazy.layout.shrink(),
-        lazy.layout.decrease_ratio(),
+        # lazy.layout.decrease_ratio(),
         lazy.layout.add(),
         ),
     Key([mod, "control"], "Left",
-        lazy.layout.grow_left(),
+        # lazy.layout.grow_left(),
         lazy.layout.shrink(),
-        lazy.layout.decrease_ratio(),
+        # lazy.layout.decrease_ratio(),
         lazy.layout.add(),
         ),
     Key([mod, "control"], "k",
-        lazy.layout.grow_up(),
+        # lazy.layout.grow_up(),
         lazy.layout.grow(),
-        lazy.layout.decrease_nmaster(),
+        # lazy.layout.dcease_nmaster(),
         ),
     Key([mod, "control"], "Up",
-        lazy.layout.grow_up(),
+        # lazy.layout.grow_up(),
         lazy.layout.grow(),
-        lazy.layout.decrease_nmaster(),
+        # lazy.layout.decrease_nmaster(),
         ),
     Key([mod, "control"], "j",
-        lazy.layout.grow_down(),
+        # lazy.layout.grow_down(),
         lazy.layout.shrink(),
-        lazy.layout.increase_nmaster(),
+        # lazy.layout.increase_nmaster(),
         ),
     Key([mod, "control"], "Down",
-        lazy.layout.grow_down(),
+        # lazy.layout.grow_down(),
         lazy.layout.shrink(),
-        lazy.layout.increase_nmaster(),
+        # lazy.layout.increase_nmaster(),
         ),
 
 
@@ -136,16 +136,16 @@ keys = [
 groups = []
 
 # FOR QWERTY KEYBOARDS
-group_names = ["1", "2", "3", "4", "5",]
+group_names = ["1", "2", "3", "4", "5", "6", "7"]
 
 # FOR AZERTY KEYBOARDS
 #group_names = ["ampersand", "eacute", "quotedbl", "apostrophe", "parenleft", "section", "egrave", "exclam", "ccedilla", "agrave",]
 
 #group_labels = ["1 ", "2 ", "3 ", "4 ", "5 ", "6 ", "7 ", "8 ", "9 ", "0",]
-group_labels = ["WWW", "CODE", "TERM", "CHAT", "SHIT",]
+group_labels = [ "WWW [1]", "TERM1 [2]", "TERM2 [3]", "K9S [4]", "APPS [5]", "STUFF [6]", "CHAT [7]",]
 #group_labels = ["Web", "Edit/chat", "Image", "Gimp", "Meld", "Video", "Vb", "Files", "Mail", "Music",]
 
-group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "monadtall",]
+group_layouts = ["monadtall", "monadtall", "monadtall", "monadtall", "bsp", "monadtall", "monadtall",]
 #group_layouts = ["monadtall", "matrix", "monadtall", "bsp", "monadtall", "matrix", "monadtall", "bsp", "monadtall", "monadtall",]
 
 for i in range(len(group_names)):
@@ -164,7 +164,7 @@ for i in groups:
         Key([mod], "Tab", lazy.screen.next_group()),
         Key([mod, "shift" ], "Tab", lazy.screen.prev_group()),
         #Key(["mod1"], "Tab", lazy.screen.next_group()),
-        Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
+        # Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
 
 # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
         #Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
@@ -173,9 +173,9 @@ for i in groups:
     ])
 
 def init_layout_theme():
-    return {"margin":5,
+    return {"margin":10,
             "border_width":1,
-            "ratio":0.70,
+            "ratio":0.65,
             "border_focus": "#e0c98f",
             "border_normal": "#888888"
             }
@@ -185,11 +185,11 @@ layout_theme = init_layout_theme()
 layouts = [
     layout.MonadTall(**layout_theme),
     layout.MonadWide(**layout_theme),
-    layout.Matrix(**layout_theme),
+    # layout.Matrix(**layout_theme),
     layout.Bsp(**layout_theme),
     layout.Floating(**layout_theme),
-    layout.RatioTile(**layout_theme),
-    layout.Max(**layout_theme)
+    # layout.RatioTile(**layout_theme),
+    # layout.Max(**layout_theme)
 ]
 
 # COLORS FOR THE BAR
@@ -298,46 +298,14 @@ def init_widgets_list():
                #          foreground = colors[2],
                #          background = colors[1]
                #          ),
-               # widget.TextBox(
-               #          font="FontAwesome",
-               #          text="  ",
-               #          foreground=colors[6],
-               #          background=colors[1],
-               #          padding = 0,
-               #          fontsize=16
-               #          ),
-               # widget.CPUGraph(
-               #          border_color = colors[2],
-               #          fill_color = colors[8],
-               #          graph_color = colors[8],
-               #          background=colors[1],
-               #          border_width = 1,
-               #          line_width = 1,
-               #          core = "all",
-               #          type = "box"
-               #          ),
-               # widget.Sep(
-               #          linewidth = 1,
-               #          padding = 10,
-               #          foreground = colors[2],
-               #          background = colors[1]
-               #          ),
-               # widget.TextBox(
-               #          font="FontAwesome",
-               #          text="  ",
-               #          foreground=colors[4],
-               #          background=colors[1],
-               #          padding = 0,
-               #          fontsize=16
-               #          ),
                # widget.Memory(
-               #          font="Noto Sans",
-               #          format = '{MemUsed}M/{MemTotal}M',
-               #          update_interval = 1,
-               #          fontsize = 12,
-               #          foreground = colors[5],
-               #          background = colors[1],
-               #         ),
+                        # font="Noto Sans",
+                        # format = '{MemUsed}M/{MemTotal}M',
+                        # update_interval = 1,
+                        # fontsize = 12,
+                        # foreground = colors[5],
+                        # background = colors[1],
+                       # ),
                # widget.Sep(
                #          linewidth = 1,
                #          padding = 10,
@@ -352,19 +320,13 @@ def init_widgets_list():
                #         padding = 0,
                #         fontsize=16
                #         ),
-               widget.CurrentLayout(
-                        font = "Noto Sans",
-                        foreground = colors[2],
-                        background = colors[1]
-                        ),
-               widget.Sep(
-                        linewidth = 1,
-                        padding = 10,
-                        foreground = colors[2],
-                        background = colors[1]
-                        ),
+               # widget.CurrentLayout(
+                        # font = "Noto Sans",
+                        # foreground = colors[2],
+                        # background = colors[1]
+                        # ),
                widget.Clock(
-                       foreground = colors[8],
+                       foreground = colors[3],
                        background = colors[1],
                        fontsize = 14,
                        font = "Noto Sans Bold",
@@ -372,7 +334,7 @@ def init_widgets_list():
                        ),
                widget.Clock(
                        font = "Noto Sans",
-                       foreground = colors[2],
+                       foreground = colors[8],
                        background = colors[1],
                        fontsize = 14,
                        format="%d-%m-%Y"
@@ -389,22 +351,80 @@ def init_widgets_list():
                #          foreground = colors[2],
                #          background = colors[1]
                #          ),
-               arcobattery.BatteryIcon(
-                       padding=0,
-                       scale=0.7,
-                       y_poss=2,
-                       theme_path=home + "/.config/qtile/icons/battery_icons_horiz",
-                       update_interval = 5,
-                       background = colors[1]
-                       ),
                widget.Battery(
                        font="Noto Sans",
                        update_interval = 10,
                        fontsize = 12,
                        foreground = colors[2],
                        background = colors[1],
-                       format = '{percent:2.0%}'
+                       charge_char = '',
+                       discharge_char = '',
+                       empty_char = '',
+                       full_char = '',
+                       unknown_char = '',
+                       format = '{char} {percent:2.0%}',
 	                   ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.PulseVolume(
+                       font="Noto Sans",
+                       fmt = " {}",
+                       fontsize = 12,
+                       foreground = colors[2],
+                       background = colors[1],
+                       update_interval = 0.2
+                       ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[2],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=20
+                        ),
+               widget.CPUGraph(
+                        border_color = colors[2],
+                        fill_color = colors[8],
+                        graph_color = colors[8],
+                        background=colors[1],
+                        border_width = 1,
+                        line_width = 1,
+                        core = "all",
+                        type = "box"
+                        ),
+               widget.Sep(
+                        linewidth = 1,
+                        padding = 10,
+                        foreground = colors[2],
+                        background = colors[1]
+                        ),
+               widget.TextBox(
+                        font="FontAwesome",
+                        text="  ",
+                        foreground=colors[2],
+                        background=colors[1],
+                        padding = 0,
+                        fontsize=20
+                        ),
+               widget.MemoryGraph(
+                        border_color = colors[2],
+                        fill_color = colors[8],
+                        graph_color = colors[8],
+                        background=colors[1],
+                        border_width = 1,
+                        line_width = 1,
+                        type = "box"
+                       ),
                widget.Sep(
                         linewidth = 1,
                         padding = 10,
@@ -542,11 +562,11 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='splash'),
     Match(wm_class='toolbar'),
     Match(wm_class='Arandr'),
-    Match(wm_class='feh'),
+    # Match(wm_class='feh'),
     Match(wm_class='Galculator'),
     Match(wm_class='arcolinux-logout'),
     Match(wm_class='xfce4-terminal'),
-    Match(wm_class='enpass'),
+    # Match(wm_class='enpass'),
 
 ],  fullscreen_border_width = 0, border_width = 0)
 auto_fullscreen = True

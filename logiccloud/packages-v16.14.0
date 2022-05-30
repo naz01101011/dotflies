@@ -1,0 +1,9 @@
+cpx
+nodemon
+commitizen
+semantic-release
+@semantic-release/changelog
+@semantic-release/exec
+@semantic-release/git
+@semantic-release/npm
+jest
